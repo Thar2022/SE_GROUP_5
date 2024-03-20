@@ -45,4 +45,10 @@ class HomeController extends Controller
     {
         return view('edituser');
     }
+    
+    public function register()
+{
+    return view('register');
+}
+
 }

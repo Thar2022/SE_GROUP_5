@@ -63,8 +63,6 @@
             </div>
         </form>
         <br>
-        <span style="color: #808080">คุณมีบัญชีอยู่แล้ว? </span>
-        <span class="reg"></span><a href="{{ route('login') }}">เข้าสู่ระบบ</a></span>
     </div>
 
 </body>

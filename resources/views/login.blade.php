@@ -49,8 +49,6 @@
 
         <span class="psw"><a href="#" id="forgot-password">ลืมรหัสผ่าน?</a></span><br>
         <br>
-        <span style="color: #808080">คุณยังไม่มีบัญชี? </span>
-        <span class="reg"></span><a href="{{ route('register') }}">สมัครสมาชิก</a></span>
 
         <!-- JavaScript เพื่อจัดการเหตุการณ์เมื่อคลิกที่ลิงก์ -->
         <script>
