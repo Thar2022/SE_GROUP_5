@@ -1,0 +1,8 @@
+/* CSS to style the highlighted range */
+.current{
+    background-color: red !important;
+    color: black !important; /* Change to whatever color you want */
+}
+.highlight-range {
+    color: red !important; /* Change to whatever color you want */
+}

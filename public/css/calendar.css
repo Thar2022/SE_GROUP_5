@@ -1,0 +1,43 @@
+/* Calendar styles */
+#calendar {
+    width: 100%;
+    height: 100vh; /* ให้ calendar เต็มจอตามความสูงของหน้าจอ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+#calendar table {
+    width: 100%;
+}
+
+#calendar thead {
+    background-color: #f2f2f2;
+}
+
+#calendar thead th {
+    padding: 10px;
+    text-align: center;
+}
+
+#calendar tbody td {
+    padding: 10px;
+    text-align: center;
+}
+
+#calendar tbody td a {
+    text-decoration: none;
+    color: #333;
+}
+
+.event {
+    background-color: red; /* กำหนดสีพื้นหลัง */
+    color: white; /* กำหนดสีข้อความ */
+}
+.selected{
+    background-color: white; /* กำหนดสีพื้นหลัง */
+    color: white; /* กำหนดสีข้อความ */
+}
