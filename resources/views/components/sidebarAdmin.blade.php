@@ -4,7 +4,7 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="">ชื่อuser</a>
+            <a href="">admin</a>
         </div>
     </div>
     <ul class="sidebar-nav">
@@ -86,7 +86,7 @@
         <a href="#" class="sidebar-link">
             @csrf
             @method('DELETE')
-            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="">
+            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
                 <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
             </a>
         </a>

@@ -4,7 +4,7 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="">ชื่อuser</a>
+            <a href="">audit</a>
         </div>
     </div>
     <ul class="sidebar-nav">
@@ -70,7 +70,7 @@
         <form action="{{ route('logout') }}" method="POST" id="logout">
             @csrf
             @method('DELETE')
-            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
                 <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
             </a>
         </form>
