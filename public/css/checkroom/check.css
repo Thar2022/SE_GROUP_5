@@ -1,0 +1,31 @@
+#buttonCheck {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+#percent{
+    position: absolute;
+    top: 11rem;
+    width:500px;
+    right: 18rem; 
+}
+.box { 
+    /* position: absolute; */
+    /* left: 450px; */
+    /* b: 20px; */
+    background: red; 
+    border: 2px solid black; 
+    margin: 1px; 
+    /* text-align:center; */
+}  
+.parent { 
+    background: white; 
+    border: 1px solid black; 
+} 
+.fifty-percent {
+    /* position:absolute; */
+    /* right:50%;  */
+    /* text-align: center; */
+    background-color: #E9967A;
+    width: 50%; 
+} 
