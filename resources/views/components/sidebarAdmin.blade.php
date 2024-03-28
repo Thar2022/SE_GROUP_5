@@ -49,9 +49,10 @@
             </a>
             <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{route('report')}}" class="sidebar-link">รายงานการซ่อม</a>
+                    <a href="{{route('report')}}" class="sidebar-link">sssss</a>
                 </li>
                 <li class="sidebar-item">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <a href="{{route('waitrepair')}}" class="sidebar-link">รอการซ่อม</a>
@@ -76,6 +77,21 @@
                 <li class="sidebar-item">
                     <a href="{{ url('historyrepair') }}" class="sidebar-link">ประวัติการซ่อม</a>
 >>>>>>> parent of f691f32 (Revert "UPP KA")
+=======
+                    <a href="{{route('booking')}}" class="sidebar-link">การจองห้อง</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">การปิดห้อง</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{route('book_status')}}" class="sidebar-link">ประวัติการจอง</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{route('bookinguser')}}" class="sidebar-link">จัดการการจองห้องของuser</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
+>>>>>>> parent of 1f7e95e (Merge branch 'master' of https://github.com/Thar2022/SE_GROUP_5)
                 </li>
             </ul>
             </a>
