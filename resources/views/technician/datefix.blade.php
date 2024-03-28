@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>แก้ไขวันที่</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+@extends('layout.' . session('role_name'))
+@section('title','repair')
+@section('content')
 <body>
     <h1>แก้ไขวันที่</h1>
     <form method="POST" action="{{route('updatedate',$datefix->id_BEList,$datefix->id_checkroom)}}">
@@ -25,4 +18,4 @@
         <a href= "{{route('back',$datefix->id_checkroom)}}" class= "btn btn-primary">Back</a>
     </form>
 </body>
-</html>
+@endsection
