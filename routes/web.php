@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin/home');
+    return view('auth/login');
 });
 Route::get('/guide',[BookingController::class,'guide'])->name('guide');
 Route::get('/book',[BookingController::class,'booking'])->name('booking');
