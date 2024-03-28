@@ -55,7 +55,7 @@
                     <a href="{{route('needRepair')}}" class="sidebar-link">รอการซ่อม</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ url('historyrepair') }}" class="sidebar-link">ประวัติการซ่อม</a>
+                    <a href="{{ url('waitrepair') }}" class="sidebar-link">ประวัติการซ่อม</a>
                 </li>
 
             </ul>
