@@ -29,13 +29,7 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{ route('booking') }}" class="sidebar-link">การจองห้อง</a>
-                </li>
-                <li class="sidebar-item">
                     <a href="{{ route('bookinguser') }}" class="sidebar-link">การจัดการการจองห้องของuser</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('bookingadmin') }}" class="sidebar-link">การจัดการการจองห้องของadmin</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{{ url('/admin/changeRoom') }}" class="sidebar-link">การจองที่รอเปลี่ยนห้อง</a>
@@ -47,25 +41,6 @@
                     <a href="{{ route('ShowCheckRoom') }}" class="sidebar-link">การจัดการาการซ่อมห้อง</a>
                 </li>
             </ul>
-        </li>
-        <li class="sidebar-item">
-            <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#re" aria-expanded="false" aria-controls="re">
-                <i class="lni lni-agenda"></i>
-                <span>ซ่อม</span>
-            </a>
-            <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                <li class="sidebar-item">
-                    <a href="{{route('report')}}" class="sidebar-link">รายงานการซ่อม</a>
-                </li>
-                <li class="sidebar-item">
-
-                    <a href="{{route('waitrepair')}}" class="sidebar-link">รอการซ่อม</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('historyrepair') }}" class="sidebar-link">ประวัติการซ่อม</a>
-                </li>
-            </ul>
-            </a>
         </li>
         <li class="sidebar-item">
             <a href="{{ url('/admin/meetingRoom') }}" class="sidebar-link">

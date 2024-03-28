@@ -170,7 +170,6 @@ class AdminController extends Controller
             $time_end = $d->time_end;
             $id_emp = $d->id_emp;
             $id_room = $d->id_room;
-            $status = $d->status;
             
             $booking_roomfail = new booking_roomfail;
             $booking_roomfail->id_booking = $id;
@@ -179,7 +178,7 @@ class AdminController extends Controller
             $booking_roomfail->time_end = $time_end;
             $booking_roomfail->id_emp = $id_emp;
             $booking_roomfail->id_room = $id_room;
-            $booking_roomfail->status = $status;
+            $booking_roomfail->status = "ห้องไม่พร้อมใช้งาน";
             $booking_roomfail->save();
         }
         booking_room::where('id_booking', $id)
@@ -188,6 +187,7 @@ class AdminController extends Controller
                 'date' => $request->date,
                 'time_start' => $request->time_start,
                 'time_end' => $request->time_end,
+                'status' => "กำลังตรวจสอบ"
             ]);
 
 
