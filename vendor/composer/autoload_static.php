@@ -531,8 +531,13 @@ class ComposerStaticInitbfe12996eeecb6fdc8713a9fd9d431f8
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\BookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/BookingController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HistoryDetailRepairController' => __DIR__ . '/../..' . '/app/Http/Controllers/HistoryDetailRepairController.php',
+        'App\\Http\\Controllers\\HistoryRepairController' => __DIR__ . '/../..' . '/app/Http/Controllers/HistoryRepairController.php',
+        'App\\Http\\Controllers\\NeedRepairController' => __DIR__ . '/../..' . '/app/Http/Controllers/NeedRepairController.php',
+        'App\\Http\\Controllers\\Report_RepairController' => __DIR__ . '/../..' . '/app/Http/Controllers/Report_RepairController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
