@@ -1,3 +1,4 @@
+@extends('layout.' . session('role_name'))
 <aside id="sidebar">
     <div class="d-flex">
         <button class="toggle-btn" type="button">
