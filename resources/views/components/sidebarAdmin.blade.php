@@ -30,39 +30,24 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{route('guide')}}" class="sidebar-link">คู่มือ</a>
+                    <a href="{{ url('/admin/allBooking') }}" class="sidebar-link">การจองห้อง</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('booking')}}" class="sidebar-link">การจองห้อง</a>
+                    <a href="{{ url('/admin/changeRoom') }}" class="sidebar-link">การจองที่รอเปลี่ยนห้อง</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">การปิดห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('book_status')}}" class="sidebar-link">ประวัติการจอง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookinguser')}}" class="sidebar-link">จัดการการจองห้องของuser</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
+                    <a href="{{ url('/admin/closeRoom') }}" class="sidebar-link">การปิดห้อง</a>
                 </li>
             </ul>
         </li>
         <li class="sidebar-item">
             <a href="{{ url('/admin/checkRoom') }}" class="sidebar-link">
                 <i class="lni lni-layout"></i>
-                <span>จัดการการตรวจห้อง</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-popup"></i>
                 <span>จัดการการซ่อมห้อง</span>
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="{{ url('/admin/meetingRoom') }}" class="sidebar-link">
                 <i class="lni lni-popup"></i>
                 <span>จัดการการห้องและอุปกรณ์</span>
             </a>
