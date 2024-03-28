@@ -10,10 +10,16 @@
     <ul class="sidebar-nav">
 
         <li class="sidebar-item">
-            <a href="{{ url('/admin/home') }}" class="sidebar-link">
+            <a href="{{ url('auth/audit') }}" class="sidebar-link">
                 <i class="lni lni-home"></i>
 
                 <span>หน้าหลัก</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="{{ url('/admin/register') }}" class="sidebar-link">
+                <i class="lni lni-protection"></i>
+                <span>จัดการผู้ใช้ทั้งหมด</span>
             </a>
         </li>
         <li class="sidebar-item">
@@ -29,16 +35,10 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{ url('/admin/allBooking') }}" class="sidebar-link">การจองห้อง</a>
+                    <a href="{{ route('booking') }}" class="sidebar-link">การจองห้อง</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('bookingadmin') }}" class="sidebar-link">การจัดการการจองห้องของuser</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('/admin/changeRoom') }}" class="sidebar-link">การจองที่รอเปลี่ยนห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('/admin/closeRoom') }}" class="sidebar-link">การปิดห้อง</a>
+                    <a href="{{ route('book_status') }}" class="sidebar-link">ประวัติการจอง</a>
                 </li>
             </ul>
         </li>
@@ -71,6 +71,7 @@
             @csrf
             @method('DELETE')
             <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
+            <i class="lni lni-exit"></i>
                 <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
             </a>
         </form>

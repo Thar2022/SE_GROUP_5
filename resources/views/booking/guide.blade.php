@@ -1,4 +1,4 @@
-@extends('layout.adminLayout')
+@extends('layout.' . session('role_name'))
 @section('title','guide')
 @section('content')
 <h2>คู่มือ</h2>

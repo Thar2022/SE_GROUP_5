@@ -4,7 +4,7 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="">ชื่อadmin</a>
+            <a href="">user</a>
         </div>
     </div>
     <ul class="sidebar-nav">
@@ -23,28 +23,22 @@
             </a>
         </li>
         <li class="sidebar-item">
+            <a href="{{ url('/admin/register') }}" class="sidebar-link">
+                <i class="lni lni-protection"></i>
+                <span>จัดการผู้ใช้ทั้งหมด</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
             <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="lni lni-agenda"></i>
                 <span>จัดการการจองห้อง</span>
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{route('guide')}}" class="sidebar-link">คู่มือ</a>
+                    <a href="{{ route('booking') }}" class="sidebar-link">การจองห้อง</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('booking')}}" class="sidebar-link">การจองห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">การปิดห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('book_status')}}" class="sidebar-link">ประวัติการจอง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookinguser')}}" class="sidebar-link">จัดการการจองห้องของuser</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
+                    <a href="{{ route('book_status') }}" class="sidebar-link">ประวัติการจอง</a>
                 </li>
             </ul>
         </li>
@@ -76,9 +70,9 @@
         </li>
     </ul>
     <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
-            <i class="lni lni-exit"></i>
-            <span>ออกจากระบบ</span>
+    <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
+            <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
+
         </a>
     </div>
 </aside>

@@ -12,10 +12,13 @@ class HomeController extends Controller
         //check authentication
         if (Auth::user()) {
             if (Auth::user()->role == 1) {
+                session()->put('role_name', 'admin');
                 return view('auth.admin');
             } elseif (Auth::user()->role == 2) {
+                session()->put('role_name', 'repair');
                 return view('auth.repair');
             } elseif (Auth::user()->role == 3) {
+                session()->put('role_name', 'audit');
                 return view('auth.audit');
             } elseif(Auth::user()->role == 4){
                 return view('auth.user');
