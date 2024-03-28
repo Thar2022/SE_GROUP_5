@@ -49,7 +49,7 @@
             </a>
             <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{route('report')}}" class="sidebar-link">sssss</a>
+                    <a href="{{route('report')}}" class="sidebar-link">รายงานการซ่อม</a>
                 </li>
                 <li class="sidebar-item">
 
@@ -77,9 +77,12 @@
 
 
                     <a href="{{route('booking')}}" class="sidebar-link">การจองห้อง</a>
+
+                    <a href="{{route('booking')}}" class="sidebar-link">รอการซ่อม</a>
+
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">การปิดห้อง</a>
+                    <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">ประวติการซ่อม</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{{route('book_status')}}" class="sidebar-link">ประวัติการจอง</a>

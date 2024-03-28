@@ -4,7 +4,7 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="">repair</a>
+            <a href="">ชื่อuser</a>
         </div>
     </div>
     <ul class="sidebar-nav">
@@ -43,7 +43,7 @@
             </a>
             <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{route('report')}}" class="sidebar-link">รายงานการซ่อม</a>
+                    <a href="{{route('report')}}" class="sidebar-link">sssss</a>
         </li>
             </a>
         </li>
