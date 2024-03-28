@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     public function register()
     {
-        return view('register');
+        return view('auth.register');
     }
 
     public function registerPost(Request $request)
@@ -35,15 +35,27 @@ class AuthController extends Controller
             $employee->email = $request->email;
 
             $employee->save();
+
+            //save user
+            $user = new User();
+
+            $user->name = $request->fname . ' ' . $request->lname;
+            $user->email = $request->email;
+            $user->role = $request->role;
+            $user->password = Hash::make($request->password);
+            $user->id_emp = $employee->id;
         } catch (\Exception $e) {
             return back()->with('error', 'Error Register with message: ' . $e->getMessage());
         }
+
+        $user->save();
+
         return back()->with('success', 'Register successfully');
     }
 
     public function login()
     {
-        return view('auth/login');
+        return view('auth.login');
     }
 
     public function loginPost(Request $request)
@@ -56,6 +68,7 @@ class AuthController extends Controller
         if (Auth::attempt($credetials)) {
             session(['user' => Auth::user()->name]);
             session(['role' => Auth::user()->role]);
+            session(['id_emp' => Auth::user()->id_emp]);
 
             if (Auth::user()->role == 1) {
                 return redirect('/home')->with('success', 'Login Success');

@@ -50,23 +50,7 @@
             <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
                     <a href="{{route('report')}}" class="sidebar-link">sssss</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('booking')}}" class="sidebar-link">การจองห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">การปิดห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('book_status')}}" class="sidebar-link">ประวัติการจอง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookinguser')}}" class="sidebar-link">จัดการการจองห้องของuser</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
-                </li>
-            </ul>
+        </li>
             </a>
         </li>
         <li class="sidebar-item">
