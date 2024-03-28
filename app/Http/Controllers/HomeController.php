@@ -17,7 +17,10 @@ class HomeController extends Controller
                 return view('auth.repair');
             } elseif (Auth::user()->role == 3) {
                 return view('auth.audit');
-            } else {
+            } elseif(Auth::user()->role == 4){
+                return view('auth.user');
+            }
+            else {
                 return view('auth.home');
             }
         }

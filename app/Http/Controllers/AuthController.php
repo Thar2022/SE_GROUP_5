@@ -85,4 +85,21 @@ class AuthController extends Controller
 
         return redirect()->route('login');
     }
+    public function loginAksi(Request $req)
+    {
+        if ($req->email == null or $req->password == null) {
+            return redirect()->back()->with(['error' => 'Masukkan Email atau Password !']);
+        } else {
+            if (Auth::attempt([ 'email' => $req->email, 'password' => $req->password ])) {
+                $user = Auth::user();
+                if($user->level == 1){
+                    return redirect()->route('admin');
+                } else {
+                    return redirect()->route('user');
+                }
+            } else {
+                return redirect()->back()->with(['error' => 'Login Gagal !']);
+            }
+        }
+    }
 }

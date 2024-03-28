@@ -31,7 +31,7 @@
             </span>
          </li>
          <li>
-            <a href="/edit" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="/register" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">จัดการผู้ใช้ทั้งหมด</span>
             </a>
          </li>
@@ -81,6 +81,7 @@
 </aside>
 
 <div class="p-4 sm:ml-64">
+   
 
 	<br>
 	<h3 class="text-2xl font-semibold mb-4 sm:text-center">แก้ไขข้อมูลผู้ใช้</h3>

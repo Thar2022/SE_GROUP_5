@@ -135,5 +135,7 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('/deleteUser', [DataController::class, 'deleteUser'])->name('deleteuser');
     Route::get('/editUser', [DataController::class, 'editUser'])->name('edituser');
     Route::get('/saveEditedUser', [DataController::class, 'saveEditedUser'])->name('saveEditedUser');
+
 });
+
 //end authen
