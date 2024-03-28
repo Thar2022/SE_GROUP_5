@@ -8,8 +8,13 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\BookingController' => $baseDir . '/app/Http/Controllers/BookingController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\HistoryDetailRepairController' => $baseDir . '/app/Http/Controllers/HistoryDetailRepairController.php',
+    'App\\Http\\Controllers\\HistoryRepairController' => $baseDir . '/app/Http/Controllers/HistoryRepairController.php',
+    'App\\Http\\Controllers\\NeedRepairController' => $baseDir . '/app/Http/Controllers/NeedRepairController.php',
+    'App\\Http\\Controllers\\Report_RepairController' => $baseDir . '/app/Http/Controllers/Report_RepairController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

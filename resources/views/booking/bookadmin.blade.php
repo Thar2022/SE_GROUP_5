@@ -15,13 +15,6 @@
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-4-tab" data-bs-toggle="pill" data-bs-target="#pills-4" type="button" role="tab" aria-controls="pills-4" aria-selected="false">ไม่ผ่าน</button>
     </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-5-tab" data-bs-toggle="pill" data-bs-target="#pills-5" type="button" role="tab" aria-controls="pills-5" aria-selected="false">ห้องที่ต้องเปลี่ยน</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-6-tab" data-bs-toggle="pill" data-bs-target="#pills-6" 
-        type="button" role="tab" aria-controls="pills-6" aria-selected="false">ห้องที่ทับวันปิด</button>
-    </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
@@ -187,10 +180,6 @@
             <?php $i++; ?>
             @endforeach
         </table>
-    </div>
-    <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">kuy
-    </div>
-    <div class="tab-pane fade" id="pills-6" role="tabpanel" aria-labelledby="pills-6-tab">kuybest
     </div>
 </div>
 @endsection 
