@@ -38,7 +38,7 @@
             @endif
             
             {{-- <a href="{{ route('admin.brokeEquipment', $item->id_checkroom) }}" class='btn btn-outline-primary me-2' >ดูอุปกรณที่เสีย</a> --}}
-            <td>{{ $item->amount_broken }}</td>
+            <td>{{ $item->amount }}</td>
             
         </tr>
 

@@ -138,3 +138,12 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('/saveEditedUser', [DataController::class, 'saveEditedUser'])->name('saveEditedUser');
 });
 //end authen
+=========
+    Route::get('check', [CheckroomController::class, 'check'])->name('checkroom');
+    Route::get('nobroken/{id_room}', [CheckroomController::class, 'nobroken'])->name('nobroken');
+    Route::get('broken/{id_room}', [CheckroomController::class, 'broken'])->name('broken');
+    Route::post('savebroken', [CheckroomController::class, 'savebroken']);
+    Route::get('history_check', [CheckroomController::class, 'history_check'])->name('history_check');
+    Route::get('detail_check/{id_checkroom}', [CheckroomController::class, 'detail_check'])->name('detail_check');
+});
+>>>>>>>>> Temporary merge branch 2

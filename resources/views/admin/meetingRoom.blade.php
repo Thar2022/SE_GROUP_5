@@ -17,7 +17,6 @@
             <th>ห้อง</th>
             <th>ชนิด</th>
             <th>ความจุ</th>
-            <th>อุปกรณ์</th>
             <th>แก้ไข</th>
             <th>ลบ</th>
 
@@ -29,8 +28,6 @@
                 <td>{{ $item->name_room }}</td>
                 <td>{{ $item->type }}</td>
                 <td>{{ $item->seats }}</td>
-                <td><a href="{{ route('admin.equipmentRoom', $item->id_room) }}"
-                        class='btn btn-outline-primary me-2'>ดูอุปกรณ์</a></td>
                 <td><a href="{{ route('admin.editRoom', $item->id_room) }}" class="btn btn-warning">แก้ไข</a></td>
                 <td><a href="{{ route('admin.deleteRoom', $item->id_room) }}"
                     onClick="return confirm('ยืนยันการลบหรือไม่?')" class="btn btn-danger">ลบ</a></td>

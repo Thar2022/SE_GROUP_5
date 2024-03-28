@@ -77,8 +77,9 @@ class BookingController extends Controller
     {
         $id_emp = session('id_emp');
         $book_emp = booking_room::all();
-
-        return view('booking/bookuser', compact('book_emp'));
+        $book_roomfail = booking_roomfail::join('booking_room as b', 'b.id_booking', '=', 'booking_roomfail.id_booking')
+        ->get();
+        return view('booking/bookuser', compact('book_emp','book_roomfail'));
     }
     function bookingadmin()
     {
@@ -146,39 +147,23 @@ class BookingController extends Controller
         echo $request->id_room;
         echo $time_start, $time_end;
         booking_room::insert($data);
-        // return redirect()->route('book_status');
+        return redirect()->route('book_status');
     }
     function book_status()
     {
 
         $id_emp = session('id_emp');
-        $booking_fail = booking_roomfail::join('booking_room as b', 'b.id_booking', '=', 'booking_roomfail.id_booking')
-            ->where('booking_roomfail.status', 'กำลังส่งเรื่อง')
-            ->where('b.id_emp', $id_emp) //อย่าลืมเปลี่ยน
-            ->first();
-        if ($booking_fail != null) {
-            $fail = booking_roomfail::join('meeting_room as m', 'm.id_room', '=', 'booking_roomfail.id_room')
-                ->where('id_booking', $booking_fail->id_booking)
-                ->where('status', 'กำลังส่งเรื่อง')->first();
-            $book = booking_room::join('meeting_room as m', 'm.id_room', '=', 'booking_room.id_room')
-                ->where('id_booking', $booking_fail->id_booking)->first();
-            
-        }
-        else{
-            $fail = null;
-            $book = null;
-        }
         $book_emp = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'booking_room.id_room', 'status', 'time_start', 'time_end')
             ->where('id_emp', $id_emp)
             ->union(function ($query) {
                 $query->select('b.id_booking', 'b.topic', 'bf.date', 'b.amount', 'b.id_emp', 'bf.id_room', 'bf.status', 'bf.time_start', 'bf.time_end')
                     ->from('booking_roomfail as bf')
-                    ->join('booking_room as b', 'bf.id_booking', '=', 'b.id_booking')
-                    ->where('bf.status', '!=', 'กำลังส่งเรื่อง');
+                    ->join('booking_room as b', 'bf.id_booking', '=', 'b.id_booking');
+                    
             })
             ->orderBy('time_start', 'asc')
             ->get();
-        return view('booking/book_status', compact('book_emp','booking_fail', 'fail', 'book'));
+        return view('booking/book_status', compact('book_emp'));
     }
 
     function book_edit($id)
@@ -303,6 +288,7 @@ class BookingController extends Controller
             ];
             booking_room::where('id_booking', $request->id)->update($data);
         }
+        return redirect()->route('book_status');
     }
     public function delete($id)
     {
@@ -312,12 +298,13 @@ class BookingController extends Controller
 
         if ($check != null) {
             echo $id . $check->id;
+            booking_roomfail::where('id_booking',$id)->delete();
         } elseif ($check == null) {
-            echo $id;
+            booking_room::where('id_booking', $id)->delete();
         }
 
         //booking_room::where('id_booking', $id)->delete();
-        //return redirect()->back();
+        return redirect()->back();
     }
     public function update2($id)
     {
