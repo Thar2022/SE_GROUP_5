@@ -19,10 +19,7 @@ class BookingController extends Controller
 {
     function booking()
     {
-        $room = meeting_room::join('equipment_room as er', 'er.id_room', '=', 'meeting_room.id_room')
-        ->join('equipment as e', 'e.id_equipment', '=', 'er.id_equipment')
-        ->orderByDesc('meeting_room.id_room')
-        ->get();
+        $room = meeting_room::orderByDesc('id_room')->get();
 
         return view('booking/book', compact('room'));
     }
@@ -36,14 +33,14 @@ class BookingController extends Controller
         booking_roomfail::where('id', $request->id_fail)->update($data);
 
 
-        $id_emp = session('id_emp'); //หาวิธีgetให้ได้
+        $id_emp = '1'; //หาวิธีgetให้ได้
         $book_emp = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'booking_room.id_room', 'status', 'time_start', 'time_end')
-            ->where('id_emp', $id_emp)
+            ->where('id_emp', 1)
             ->union(function ($query) {
                 $query->select('b.id_booking', 'b.topic', 'bf.date', 'b.amount', 'b.id_emp', 'bf.id_room', 'bf.status', 'bf.time_start', 'bf.time_end')
                     ->from('booking_roomfail as bf')
                     ->join('booking_room as b', 'bf.id_booking', '=', 'b.id_booking')
-                    ->where('bf.status', '!=', 'ห้องไม่พร้อมใช้');
+                    ->where('bf.status', '!=', 'จองไม่สำเร็จ');
             })
             ->orderBy('time_start', 'asc')
             ->get();
@@ -57,10 +54,9 @@ class BookingController extends Controller
     }
     function guide()
     {
-        $id_emp = session('id_emp');
         $booking_fail = booking_roomfail::join('booking_room as b', 'b.id_booking', '=', 'booking_roomfail.id_booking')
             ->where('booking_roomfail.status', 'กำลังส่งเรื่อง')
-            ->where('b.id_emp', $id_emp) //อย่าลืมเปลี่ยน
+            ->where('b.id_emp', 1) //อย่าลืมเปลี่ยน
             ->first();
         if ($booking_fail != null) {
             $fail = booking_roomfail::join('meeting_room as m', 'm.id_room', '=', 'booking_roomfail.id_room')
@@ -78,14 +74,14 @@ class BookingController extends Controller
     }
     function bookinguser()
     {
-        $id_emp = session('id_emp'); //หาวิธีgetให้ได้
+        $id_emp = '1'; //หาวิธีgetให้ได้
         $book_emp = booking_room::all();
 
         return view('booking/bookuser', compact('book_emp'));
     }
     function bookingadmin()
     {
-        $id_emp = session('id_emp'); //หาวิธีgetให้ได้
+        $id_emp = '1'; //หาวิธีgetให้ได้
         $book_emp = booking_roomfail::all();
         return view('booking/bookadmin', compact('book_emp'));
     }
@@ -96,7 +92,7 @@ class BookingController extends Controller
             ->where('meeting_room.name_room', $id)
             ->where('close_room.id_closeroom', close_room::max('id_closeroom'))
             ->first();
-        return view('booking/book_from', compact('close_room','id'));
+        return view('booking/book_from', compact(('close_room')));
     }
 
     function book_insert(Request $request)
@@ -115,7 +111,7 @@ class BookingController extends Controller
         ); //ยังไม่ได้แก้
 
 
-        $id_emp = session('id_emp'); //หาวิธีgetให้ได้
+        $id_emp = '1'; //หาวิธีgetให้ได้
         $time_start = $request->hour_strat . ':' . $request->minute_start;
         $time_end = $request->hour_end . ':' . $request->minute_end;
         $timeb_start = explode("|", $request->t_s);
@@ -139,7 +135,7 @@ class BookingController extends Controller
             'amount' => $request->amount,
             'time_start' => $time_start,
             'time_end' => $time_end,
-            'id_emp' => $id_emp, //หาวิธีหา id ให้ได้
+            'id_emp' => "1", //หาวิธีหา id ให้ได้
             'id_room' => $request->id_room,
             'status' => "กำลังส่งเรื่อง",
         ];
@@ -150,9 +146,9 @@ class BookingController extends Controller
     function book_status()
     {
 
-        $id_emp = session('id_emp'); //หาวิธีgetให้ได้
+        $id_emp = '1'; //หาวิธีgetให้ได้
         $book_emp = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'booking_room.id_room', 'status', 'time_start', 'time_end')
-            ->where('id_emp', $id_emp)
+            ->where('id_emp', 1)
             ->union(function ($query) {
                 $query->select('b.id_booking', 'b.topic', 'bf.date', 'b.amount', 'b.id_emp', 'bf.id_room', 'bf.status', 'bf.time_start', 'bf.time_end')
                     ->from('booking_roomfail as bf')
@@ -166,7 +162,6 @@ class BookingController extends Controller
 
     function book_edit($id)
     {
-       
         $check = booking_roomfail::where('id_booking', $id)
             ->orderBy('id', 'asc')
             ->first();
@@ -181,22 +176,23 @@ class BookingController extends Controller
             $booking = booking_room::join('meeting_room', 'booking_room.id_room', '=', 'meeting_room.id_room')
                 ->where('id_booking', $id)->first();
         }
-        $id_emp = session('id_emp');
+
         $close_room = close_room::join('meeting_room', 'close_room.id_room', '=', 'meeting_room.id_room')
             ->where('meeting_room.id_room', $booking->id_room)
             ->where('close_room.id_closeroom', close_room::max('id_closeroom'))
             ->first();
         $room = meeting_room::all();
         $book = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'id_room', 'status', 'time_start', 'time_end')
-            ->where('status', '!=', 'ห้องไม่พร้อมใช้')
-            ->where('id_emp', $id_emp)
+            ->where('status', '!=', 'จองไม่สำเร็จ')
+            ->where('id_emp', 1)
             ->where('date', $booking->date)
             ->union(function ($query) use ($booking) {
                 $query->select('b.id_booking', 'b.topic', 'bf.date', 'b.amount', 'b.id_emp', 'bf.id_room', 'bf.status', 'bf.time_start', 'bf.time_end')
                     ->from('booking_roomfail as bf')
                     ->join('booking_room as b', 'bf.id_booking', '=', 'b.id_booking')
+                    ->where('bf.id_emp', 1)
                     ->where('bf.date', $booking->date)
-                    ->where('bf.status', '!=', 'ห้องไม่พร้อมใช้');
+                    ->where('bf.status', '!=', 'จองไม่สำเร็จ');
             })
             ->orderBy('time_start', 'asc')
             ->get();
@@ -273,14 +269,13 @@ class BookingController extends Controller
             booking_roomfail::where('id', $check->id)->update($data_fail);
         } elseif ($check == null) {
             echo 'แก้ที่booking_room';
-            $id_emp = session('id_emp');
             $data = [
                 'topic' => $request->topic,
                 'date' => $request->date,
                 'amount' => $request->amount,
                 'time_start' => $time_start,
                 'time_end' => $time_end,
-                'id_emp' => $id_emp, //หาวิธีหา id ให้ได้
+                'id_emp' => "1", //หาวิธีหา id ให้ได้
                 'id_room' => $request->room,
                 'status' => "กำลังส่งเรื่อง",
             ];
@@ -328,12 +323,12 @@ class BookingController extends Controller
     }
     public function ajaxRequest_table(Request $request)
     {
-        $id_emp = session('id_emp');
+
         $date = $request->input('date');
         $room = $request->input('room');
         $book = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'id_room', 'status', 'time_start', 'time_end')
-            ->where('status', '!=', 'ห้องไม่พร้อมใช้')
-            ->where('id_emp', $id_emp)
+            ->where('status', '!=', 'จองไม่สำเร็จ')
+            ->where('id_emp', 1)
             ->where('date', $date)
             ->where('id_room', $room)
             ->union(function ($query) use ($date, $room) {
@@ -343,7 +338,7 @@ class BookingController extends Controller
                     ->where('bf.id_emp', 1)
                     ->where('bf.date', $date)
                     ->where('bf.id_room', $room)
-                    ->where('bf.status', '!=', 'ห้องไม่พร้อมใช้');
+                    ->where('bf.status', '!=', 'จองไม่สำเร็จ');
             })
             ->orderBy('time_start', 'asc')
             ->get();

@@ -1,4 +1,4 @@
-@extends('layout.' . session('role_name'))
+@extends('layout.adminLayout')
 @section('title','from')
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/datepick.css') }}">
