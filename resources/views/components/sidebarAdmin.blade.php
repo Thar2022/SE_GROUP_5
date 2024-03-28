@@ -52,13 +52,11 @@
                     <a href="{{route('report')}}" class="sidebar-link">sssss</a>
                 </li>
                 <li class="sidebar-item">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                     <a href="{{route('waitrepair')}}" class="sidebar-link">รอการซ่อม</a>
-=======
+
                     <a href="{{route('booking')}}" class="sidebar-link">รอการซ่อม</a>
->>>>>>> parent of 797a58d (slide)
+
                 </li>
                 <li class="sidebar-item">
                     <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">ประวัติการซ่อม</a>
@@ -71,13 +69,13 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
-=======
+
                     <a href="{{route('waitrepair')}}" class="sidebar-link">รอการซ่อม</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{{ url('historyrepair') }}" class="sidebar-link">ประวัติการซ่อม</a>
->>>>>>> parent of f691f32 (Revert "UPP KA")
-=======
+
+
                     <a href="{{route('booking')}}" class="sidebar-link">การจองห้อง</a>
                 </li>
                 <li class="sidebar-item">
@@ -91,7 +89,6 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
->>>>>>> parent of 1f7e95e (Merge branch 'master' of https://github.com/Thar2022/SE_GROUP_5)
                 </li>
             </ul>
             </a>
@@ -114,7 +111,7 @@
             @csrf
             @method('DELETE')
             <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
-            <i class="lni lni-exit"></i>
+                <i class="lni lni-exit"></i>
                 <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
             </a>
         </form>
