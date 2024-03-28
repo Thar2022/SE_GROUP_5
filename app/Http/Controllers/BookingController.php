@@ -75,7 +75,7 @@ class BookingController extends Controller
     }
     function bookinguser()
     {
-        $$id_emp = session('id_emp');
+        $id_emp = session('id_emp');
         $book_emp = booking_room::all();
 
         return view('booking/bookuser', compact('book_emp'));
@@ -152,6 +152,22 @@ class BookingController extends Controller
     {
 
         $id_emp = session('id_emp');
+        $booking_fail = booking_roomfail::join('booking_room as b', 'b.id_booking', '=', 'booking_roomfail.id_booking')
+            ->where('booking_roomfail.status', 'กำลังส่งเรื่อง')
+            ->where('b.id_emp', $id_emp) //อย่าลืมเปลี่ยน
+            ->first();
+        if ($booking_fail != null) {
+            $fail = booking_roomfail::join('meeting_room as m', 'm.id_room', '=', 'booking_roomfail.id_room')
+                ->where('id_booking', $booking_fail->id_booking)
+                ->where('status', 'กำลังส่งเรื่อง')->first();
+            $book = booking_room::join('meeting_room as m', 'm.id_room', '=', 'booking_room.id_room')
+                ->where('id_booking', $booking_fail->id_booking)->first();
+            
+        }
+        else{
+            $fail = null;
+            $book = null;
+        }
         $book_emp = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'booking_room.id_room', 'status', 'time_start', 'time_end')
             ->where('id_emp', $id_emp)
             ->union(function ($query) {
@@ -162,7 +178,7 @@ class BookingController extends Controller
             })
             ->orderBy('time_start', 'asc')
             ->get();
-        return view('booking/book_status', compact('book_emp'));
+        return view('booking/book_status', compact('book_emp','booking_fail', 'fail', 'book'));
     }
 
     function book_edit($id)
