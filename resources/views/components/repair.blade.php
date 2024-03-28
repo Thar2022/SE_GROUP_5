@@ -1,4 +1,6 @@
 @extends('layout.' . session('role_name'))
+@section('title','booking')
+@section('content')
 <aside id="sidebar">
     <div class="d-flex">
         <button class="toggle-btn" type="button">
@@ -81,3 +83,4 @@
         </form>
     </div>
 </aside>
+@endsection
