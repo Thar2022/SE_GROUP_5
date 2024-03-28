@@ -53,6 +53,7 @@
                 </li>
                 <li class="sidebar-item">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <a href="{{route('waitrepair')}}" class="sidebar-link">รอการซ่อม</a>
 =======
                     <a href="{{route('booking')}}" class="sidebar-link">รอการซ่อม</a>
@@ -69,6 +70,12 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
+=======
+                    <a href="{{route('waitrepair')}}" class="sidebar-link">รอการซ่อม</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url('historyrepair') }}" class="sidebar-link">ประวัติการซ่อม</a>
+>>>>>>> parent of f691f32 (Revert "UPP KA")
                 </li>
             </ul>
             </a>
