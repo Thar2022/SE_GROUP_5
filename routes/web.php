@@ -68,6 +68,7 @@ Route::get('/admin/deleteRoom/{id}', [AdminController::class, 'deleteRoom'])->na
 Route::get('/admin/equipmentRoom', [AdminController::class, 'equipmentRoom'])->name('admin.equipmentRoom');
 Route::get('/admin/createRoom', [AdminController::class, 'createRoom'])->name('admin.createRoom');
 Route::get('/admin/addRoom', [AdminController::class, 'addRoom'])->name('admin.addRoom');
+Route::get('/admin/updateChangeRoom{id}', [AdminController::class, 'updateChangeRoom'])->name('admin.updateChangeRoom');
 
 
 

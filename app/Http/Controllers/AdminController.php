@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\booking_room;
+use App\Models\booking_roomfail;
 use App\Models\check_room;
 use App\Models\close_room;
 use App\Models\meeting_room;
@@ -18,13 +19,13 @@ class AdminController extends Controller
             ->join('check_brokenroom', 'check_room.id_checkroom', '=', 'check_brokenroom.id_checkroom')
             ->leftJoinSub(
                 function ($query) {
-                    $query->select('id_checkroom AS id_ch' )->distinct()
+                    $query->select('id_checkroom AS id_ch')->distinct()
                         ->from('broke_equipmentlist');
                 },
                 'broke_equipmentlist',
                 'broke_equipmentlist.id_ch',
                 'check_brokenroom.id_checkroom'
-            )->whereNotIn('check_room.id_checkroom',function($query){
+            )->whereNotIn('check_room.id_checkroom', function ($query) {
                 $query->select('id_checkroom')->from('close_room');
             })
 
@@ -46,20 +47,20 @@ class AdminController extends Controller
     public function createCloseRoom($id_checkroom)
     {
         $data = check_room::join('meeting_room', 'check_room.id_room', '=', 'meeting_room.id_room')
-            ->where('check_room.id_checkroom',$id_checkroom)
+            ->where('check_room.id_checkroom', $id_checkroom)
             ->get();
 
 
         return view('admin.createCloseRoom', compact('data'));
     }
 
-    public function addCloseRoom(Request $request,$id_checkroom)
+    public function addCloseRoom(Request $request, $id_checkroom)
     {
         $request->validate([
             'date_open' => 'required',
-            'id_room'=>'required'
+            'id_room' => 'required'
         ]);
-        
+
         date_default_timezone_set("Asia/Bangkok");
         $date_close = date('Y-m-d');
 
@@ -83,7 +84,7 @@ class AdminController extends Controller
             // ->join('equipment', 'equipment_room.id_equipment', '=', 'equipment.id_equipment')
             ->leftJoinSub(
                 function ($query) {
-                    $query->select('id_checkroom AS id_ch' )->distinct()
+                    $query->select('id_checkroom AS id_ch')->distinct()
                         ->from('broke_equipmentlist');
                 },
                 'broke_equipmentlist',
@@ -101,7 +102,7 @@ class AdminController extends Controller
             ->join('equipment_room', 'broke_equipmentlist.id_equipment', '=', 'equipment_room.id_equipment_room')
             ->join('equipment', 'equipment_room.id_equipment', '=', 'equipment.id_equipment')
             ->leftJoin('check_brokenroom', 'check_room.id_checkroom', '=', 'check_brokenroom.id_checkroom')
-            ->where('check_room.id_checkroom',$id)
+            ->where('check_room.id_checkroom', $id)
             ->get();
 
         return view('admin.brokeEquipment', compact('data'));
@@ -110,9 +111,9 @@ class AdminController extends Controller
     public function editCloseRoom($id)
     {
         $data = close_room::join('check_room', 'close_room.id_checkroom', '=', 'check_room.id_checkroom')
-        ->join('meeting_room', 'check_room.id_room', '=', 'meeting_room.id_room')
-        ->where('id_closeroom', $id)
-        ->get();
+            ->join('meeting_room', 'check_room.id_room', '=', 'meeting_room.id_room')
+            ->where('id_closeroom', $id)
+            ->get();
         return view('admin.editCloseRoom', compact('data'));
     }
 
@@ -150,8 +151,49 @@ class AdminController extends Controller
     {
         $data = booking_room::where('id_booking', $id)->get();
         $room = meeting_room::get();
-        return view('admin.editChangeRoom', compact('data','room'));
+        return view('admin.editChangeRoom', compact('data', 'room'));
     }
+
+    public function updateChangeRoom(Request $request, $id)
+    {
+        $request->validate([
+            'room_id' => 'required',
+            'date' => 'required',
+            'time_start' => 'required',
+            'time_end' => 'required',
+        ]);
+
+        $data = booking_room::where('id_booking', $id)->get();
+        foreach ($data as $d) {
+            $Date = $d->date;
+            $time_start = $d->time_start;
+            $time_end = $d->time_end;
+            $id_emp = $d->id_emp;
+            $id_room = $d->id_room;
+            $status = $d->status;
+            
+            $booking_roomfail = new booking_roomfail;
+            $booking_roomfail->id_booking = $id;
+            $booking_roomfail->date = $Date;
+            $booking_roomfail->time_start = $time_start;
+            $booking_roomfail->time_end = $time_end;
+            $booking_roomfail->id_emp = $id_emp;
+            $booking_roomfail->id_room = $id_room;
+            $booking_roomfail->status = $status;
+            $booking_roomfail->save();
+        }
+        booking_room::where('id_booking', $id)
+            ->update([
+                'id_room' => $request->room_id,
+                'date' => $request->date,
+                'time_start' => $request->time_start,
+                'time_end' => $request->time_end,
+            ]);
+
+
+        return redirect()->route('admin.changeRoom');
+    }
+
 
     public function sentEmail($id)
     {
@@ -206,8 +248,8 @@ class AdminController extends Controller
     {
         $request->validate([
             'name_room' => 'required',
-            'type'=>'required',
-            'seats'=>'required'
+            'type' => 'required',
+            'seats' => 'required'
         ]);
 
         $room = new meeting_room;
@@ -218,5 +260,4 @@ class AdminController extends Controller
 
         return redirect()->route('admin.meetingRoom');
     }
-    
 }

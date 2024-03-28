@@ -20,14 +20,14 @@
             
         @endforeach
         
-        {{-- <form action="{{ route('admin.updateChangeRoom', $close_room->id_closeroom) }}" method="GET"> --}}
+        <form action="{{ route('admin.updateChangeRoom', $item->id_booking) }}" method="GET">
             @csrf
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group my-3">
                         <strong>ห้อง</strong>
                         
-                        <select name="ห้อง" >
+                        <select name="room_id" >
                             @foreach ($room as $al)
                                 <option value={{ $al->id_room }} > {{ $al->name_room }}</option>;
                             @endforeach
@@ -36,7 +36,15 @@
                     </div>
                     <div class="form-group my-3">
                         <strong>วันที่จอง</strong>
-                        <input type="date" name="date_open" value="{{ $item->date_start }}" class="" required>
+                        <input type="date" name="date" value="{{ $item->date }}" class="" required>
+                    </div>
+                    <div class="form-group my-3">
+                        <strong>เวลาเริ่ม</strong>
+                        <input type="text" name="time_start" value="{{ $item->time_start }}" class="" required>
+                    </div>
+                    <div class="form-group my-3">
+                        <strong>เวลาสิ้นสุด</strong>
+                        <input type="text" name="time_end" value="{{ $item->time_end }}" class="" required>
                     </div>
                 </div>
                 <div class="col-md-12">
