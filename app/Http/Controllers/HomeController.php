@@ -20,7 +20,10 @@ class HomeController extends Controller
             } elseif (Auth::user()->role == 3) {
                 session()->put('role_name', 'audit');
                 return view('auth.audit');
-            } else {
+            } elseif(Auth::user()->role == 4){
+                return view('auth.user');
+            }
+            else {
                 return view('auth.home');
             }
         }

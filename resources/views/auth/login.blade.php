@@ -4,61 +4,93 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
     <title>Login</title>
+    <!-- Vite link tag for loading CSS -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <style>
-        .psw a {
-            background-color: #FFFFFF; /* สีพื้นหลังของปุ่ม */
-            color: #0066FF; /* สีของตัวอักษร */
-            text-align: left; /* จัดข้อความชิดซ้าย */
-            text-decoration: underline; /* มีขีดเส้นใต้ */
-            display: inline; /* แสดงเป็นอินไลน์ */
-            margin-right: 10px; /* ระยะห่างด้านขวา */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 32px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
 
-        .psw a:hover {
-            background-color: #FFFFFF; /* เปลี่ยนสีพื้นหลังเมื่อชี้ */
+        .login-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            color: #333333;
+        }
+
+        .input-field {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .login-button {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #1e4bbf;
+        }
+
+        .forgot-password {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 h-screen flex justify-center items-center">
-    <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
-        <h2 class="text-2xl font-semibold mb-4">เข้าสู่ระบบ</h2>
+<body>
+    <div class="login-container">
+        <h2 class="login-title">เข้าสู่ระบบ</h2>
         @if (Session::has('error'))
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
                 <p class="font-bold">Error!</p>
                 <p>{{ Session::get('error') }}</p>
             </div>
         @endif
-        <form action="{{ route('login') }}" method="POST" class="space-y-4">
+        <form action="{{ route('login') }}" method="POST">
             @csrf
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">อีเมล</label>
-                <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-            </div>
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">รหัสผ่าน</label>
-                <input type="password" id="password" name="password" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-            </div>
-            <div>
-                <button type="submit" class="w-full py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Sign In</button>
-                </div>
+            <input type="email" name="email" class="input-field" placeholder="อีเมล" required>
+            <input type="password" name="password" class="input-field" placeholder="รหัสผ่าน" required>
+            <button type="submit" class="login-button">เข้าสู่ระบบ</button>
         </form>
-
-       
-        <br>
-
-        <!-- JavaScript เพื่อจัดการเหตุการณ์เมื่อคลิกที่ลิงก์ -->
-        <script>
-            document.getElementById("forgot-password").addEventListener("click", function(event) {
-                
-
-                alert("Forgot password link clicked!");
-            });
-        </script>
     </div>
 </body>
 
 </html>
+
