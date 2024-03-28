@@ -29,7 +29,7 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{ url('/admin/allBooking') }}" class="sidebar-link">การจองห้อง</a>
+                    <a href="{{ url('booking') }}" class="sidebar-link">การจองห้อง</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{{ route('bookingadmin') }}" class="sidebar-link">การจัดการการจองห้องของuser</a>
