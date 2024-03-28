@@ -47,12 +47,13 @@
                 </div>
         </form>
 
-        <span class="psw"><a href="#" id="forgot-password">ลืมรหัสผ่าน?</a></span><br>
+       
         <br>
 
         <!-- JavaScript เพื่อจัดการเหตุการณ์เมื่อคลิกที่ลิงก์ -->
         <script>
             document.getElementById("forgot-password").addEventListener("click", function(event) {
+                
 
                 alert("Forgot password link clicked!");
             });

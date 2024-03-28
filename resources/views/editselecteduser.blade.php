@@ -54,12 +54,12 @@
          </li>
          <li>
             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="flex-1 ms-3 whitespace-nowrap">จัดการห้องและอุปกรณ์ นะครับ</span>
+               <span class="flex-1 ms-3 whitespace-nowrap">จัดการห้องและอุปกรณ์</span>
             </a>
          </li>
          <li>
          <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="flex-1 ms-3 whitespace-nowrap">จัดการห้องและอุปกรณ์ นะจ้ะ</span>
+               <span class="flex-1 ms-3 whitespace-nowrap">จัดการห้องและอุปกรณ์</span>
             </span>
          </li>
          <li>

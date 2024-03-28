@@ -61,9 +61,11 @@
             <div>
                 <button type="submit" class="w-full py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">สมัครสมาชิก</button>
             </div>
+            
         </form>
         <br>
     </div>
+    
 
 </body>
 
