@@ -19,7 +19,7 @@
                             อุปกรณ์
                         </p>
                         <div class="mt-auto">
-                            <a href="{{route('book_from',$item->name_room)}}">
+                            <a href="{{route('book_from',$item->id_room)}}">
                                 <button type="button" class="btn btn-sm btn-outline-secondary float-end">จอง</button>
                             </a>
                         </div>

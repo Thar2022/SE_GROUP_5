@@ -89,7 +89,7 @@
         <span class="text-danger">{{$message}}</span>
     </div>
     @enderror
-    <input type="hidden" name="id_room" id="id_room" value="{{ $close_room ? $close_room->id_room : '' }}">
+    <input type="hidden" name="id_room" id="id_room" value="<?php echo $id ?>">
     <a href="#">
         <input type="submit" value="บันทึก" class="btn btn-primary my-3">
     </a>

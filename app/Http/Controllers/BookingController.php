@@ -93,7 +93,10 @@ class BookingController extends Controller
             ->where('meeting_room.name_room', $id)
             ->where('close_room.id_closeroom', close_room::max('id_closeroom'))
             ->first();
-        return view('booking/book_from', compact(('close_room')));
+        //echo $id;
+        //$id = $sql->id;
+
+            return view('booking/book_from', compact('close_room','id'));
     }
 
     function book_insert(Request $request)
@@ -140,6 +143,7 @@ class BookingController extends Controller
             'id_room' => $request->id_room,
             'status' => "กำลังส่งเรื่อง",
         ];
+        echo $request->id_room;
         echo $time_start, $time_end;
         booking_room::insert($data);
         // return redirect()->route('book_status');
