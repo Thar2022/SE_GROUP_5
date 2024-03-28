@@ -17,7 +17,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="{{ url('/admin/edituser') }}" class="sidebar-link">
+            <a href="{{ route('edituser') }}" class="sidebar-link">
                 <i class="lni lni-protection"></i>
                 <span>จัดการผู้ใช้ทั้งหมด</span>
             </a>
