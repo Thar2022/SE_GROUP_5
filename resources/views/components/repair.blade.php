@@ -49,7 +49,7 @@
             </a>
             <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{route('report')}}" class="sidebar-link">sssss</a>
+                    <a href="{{route('report')}}" class="sidebar-link">รายงานการซ่อม</a>
         </li>
             </a>
         </li>
