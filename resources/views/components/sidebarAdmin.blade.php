@@ -32,6 +32,9 @@
                     <a href="{{ route('booking') }}" class="sidebar-link">การจองห้อง</a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{ route('book_status') }}" class="sidebar-link">ประวัติการจอง</a>
+                </li>
+                <li class="sidebar-item">
                     <a href="{{ route('bookinguser') }}" class="sidebar-link">การจัดการการจองห้องของuser</a>
                 </li>
                 <li class="sidebar-item">

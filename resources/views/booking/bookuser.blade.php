@@ -127,7 +127,7 @@
             <?php $i = 1; ?>
             @foreach ($book_emp as $item)
             <tbody>
-                <?php if ($item->status == 'จองสำเร็จ') : ?>
+                <?php if ($item->status == 'ห้องพร้อมใช้งาน') : ?>
                     <tr>
                         <?php
                         $room = meeting_room::where('id_room', $item->id_room)->first();
@@ -166,9 +166,8 @@
                 </tr>
             </thead>
             <?php $i = 1; ?>
-            @foreach ($book_emp as $item)
+            @foreach ($book_roomfail as $item)
             <tbody>
-                <?php if ($item->status == 'จองไม่สำเร็จ') : ?>
                     <tr>
                         <?php
                         $room = meeting_room::where('id_room', $item->id_room)->first();
@@ -184,7 +183,6 @@
                         <td>{{$item->time_end}}</td>
                         <td>{{$item->status}}</td>
                     </tr>
-                <?php endif; ?>
             </tbody>
             <?php $i++; ?>
             @endforeach
