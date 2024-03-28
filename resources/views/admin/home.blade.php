@@ -7,5 +7,6 @@
 
 
 @section('content')
-    test
+<h2 class="text-2xl font-semibold mb-4">Welcome to Our Website, {{ session('user') }}!</h2>
+        <h2 class="text-2xl font-semibold mb-4">{{session('role_name')}}</h2>
 @endsection

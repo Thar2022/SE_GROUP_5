@@ -13,7 +13,7 @@
     <ul class="sidebar-nav">
 
         <li class="sidebar-item">
-            <a href="{{ url('auth.repair') }}" class="sidebar-link">
+            <a href="{{ url('admin/home') }}" class="sidebar-link">
                 <i class="lni lni-home"></i>
 
                 <span>หน้าหลัก</span>

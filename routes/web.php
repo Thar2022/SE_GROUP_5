@@ -51,7 +51,7 @@ Route::get('/admin/home', function () {
     return view('/admin/home');
 });
 
-Route::get('/admin/checkRoom', [AdminController::class, 'ShowCheckRoom']);
+Route::get('/admin/checkRoom', [AdminController::class, 'ShowCheckRoom'])->name('ShowCheckRoom');
 // Route::get('/admin/createCloseRoom/{id}', [AdminController::class, 'createCloseRoom'])->name('admin.createCloseRoom');
 Route::get('/admin/closeRoom', [AdminController::class, 'closeRoom'])->name('admin.closeRoom');
 Route::get('/admin/editCloseRoom/{id}', [AdminController::class, 'editCloseRoom'])->name('admin.editCloseRoom');
