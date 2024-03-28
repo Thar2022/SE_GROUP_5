@@ -10,7 +10,7 @@
     <ul class="sidebar-nav">
 
         <li class="sidebar-item">
-            <a href="{{ url('/admin/home') }}" class="sidebar-link">
+            <a href="{{ url('auth/audit') }}" class="sidebar-link">
                 <i class="lni lni-home"></i>
 
                 <span>หน้าหลัก</span>
