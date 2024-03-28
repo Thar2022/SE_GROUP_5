@@ -10,6 +10,7 @@ use App\Http\Controllers\HistoryDetailRepairController;
 use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CheckroomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,27 +25,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth/login');
 });
-Route::get('/guide',[BookingController::class,'guide'])->name('guide');
-Route::get('/book',[BookingController::class,'booking'])->name('booking');
-Route::get('/insert',[BookingController::class,'book_insert'])->name('book_insert');
-Route::get('/from/{id}',[BookingController::class,'book_from'])->name('book_from');
-Route::get('/edit/{id}',[BookingController::class,'book_edit'])->name('book_edit');
-Route::get('/status',[BookingController::class,'book_status'])->name('book_status');
-Route::post('/insert',[BookingController::class,'book_insert']);
-Route::post('/update',[BookingController::class,'book_update']);
-Route::get('/delete/{id}',[BookingController::class,'delete'])->name('delete');
-Route::post('/accept_booking', [BookingController::class,'accept_booking'])->name('accept_booking');
-Route::get('/delete_accept/{id}',[BookingController::class,'delete_accept'])->name('delete_accept');
+Route::get('/guide', [BookingController::class, 'guide'])->name('guide');
+Route::get('/book', [BookingController::class, 'booking'])->name('booking');
+Route::get('/insert', [BookingController::class, 'book_insert'])->name('book_insert');
+Route::get('/from/{id}', [BookingController::class, 'book_from'])->name('book_from');
+Route::get('/edit/{id}', [BookingController::class, 'book_edit'])->name('book_edit');
+Route::get('/status', [BookingController::class, 'book_status'])->name('book_status');
+Route::post('/insert', [BookingController::class, 'book_insert']);
+Route::post('/update', [BookingController::class, 'book_update']);
+Route::get('/delete/{id}', [BookingController::class, 'delete'])->name('delete');
+Route::post('/accept_booking', [BookingController::class, 'accept_booking'])->name('accept_booking');
+Route::get('/delete_accept/{id}', [BookingController::class, 'delete_accept'])->name('delete_accept');
 // routes/ajax
-Route::get('/ajax/time', [BookingController::class,'ajaxRequest_time']);
-Route::get('/ajax/table', [BookingController::class,'ajaxRequest_table']);
-Route::get('/ajax/date', [BookingController::class,'ajaxRequest_date']);
+Route::get('/ajax/time', [BookingController::class, 'ajaxRequest_time']);
+Route::get('/ajax/table', [BookingController::class, 'ajaxRequest_table']);
+Route::get('/ajax/date', [BookingController::class, 'ajaxRequest_date']);
 
 
-Route::prefix('admin')->group(function(){
-    Route::get('/bookinguser',[BookingController::class,'bookinguser'])->name('bookinguser');
-    Route::get('/bookingadmin',[BookingController::class,'bookingadmin'])->name('bookingadmin');
-    Route::get('/update/{id}',[BookingController::class,'update2'])->name('update2');
+Route::prefix('admin')->group(function () {
+    Route::get('/bookinguser', [BookingController::class, 'bookinguser'])->name('bookinguser');
+    Route::get('/bookingadmin', [BookingController::class, 'bookingadmin'])->name('bookingadmin');
+    Route::get('/update/{id}', [BookingController::class, 'update2'])->name('update2');
 });
 
 Route::get('/admin/home', function () {
@@ -107,33 +108,16 @@ Route::get('/back/{id}', [NeedRepairController::class, 'Back'])->name('back');
 
 //endTechnician
 
-//authen
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
- Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
-    Route::get('/forgot-password', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('/forgot-password', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-});
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index']);
-    Route::get('/home', [HomeController::class, 'index']);
-    Route::get('/admin', [HomeController::class, 'index']);
-    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
-});
+Route::prefix('checkroom')->group(function () {
+    Route::get('/', function () {
+        return view('/checkroom/welcome');
+    });
 
-Route::group(['middleware' => 'is_admin'], function () {
-    Route::get('/edit', [DataController::class, 'editPage']);
-    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::get('/forgot-password', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('/forgot-password', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('/getuserdata', [DataController::class, 'getUserInfo'])->name('getuserdata');
-    Route::get('/deleteUser', [DataController::class, 'deleteUser'])->name('deleteuser');
-    Route::get('/editUser', [DataController::class, 'editUser'])->name('edituser');
-    Route::get('/saveEditedUser', [DataController::class, 'saveEditedUser'])->name('saveEditedUser');
+    Route::get('check', [CheckroomController::class, 'check'])->name('checkroom');
+    Route::get('nobroken/{id_room}', [CheckroomController::class, 'nobroken'])->name('nobroken');
+    Route::get('broken/{id_room}', [CheckroomController::class, 'broken'])->name('broken');
+    Route::post('savebroken', [CheckroomController::class, 'savebroken']);
+    Route::get('history_check', [CheckroomController::class, 'history_check'])->name('history_check');
+    Route::get('detail_check/{id_checkroom}', [CheckroomController::class, 'detail_check'])->name('detail_check');
 });
-//end authen
