@@ -13,6 +13,6 @@ class HistoryRepairController extends Controller
     }
     function delete($id){
         DB::table('check_brokenroom')->where('id_CBRoom',$id)->delete();
-        return redirect('technician/historyrepair');
+        return redirect()->back();
     }
 }

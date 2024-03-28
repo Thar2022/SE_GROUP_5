@@ -1,6 +1,4 @@
-@extends('layout.' . session('role_name'))
-@section('title','repair')
-@section('content')
+
 <aside id="sidebar">
     <div class="d-flex">
         <button class="toggle-btn" type="button">
@@ -80,7 +78,8 @@
                 <i class="lni lni-exit"></i>
                 <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
             </a>
+               
         </form>
     </div>
 </aside>
-@endsection
+

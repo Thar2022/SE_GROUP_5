@@ -1,7 +1,7 @@
 @extends('layout.' . session('role_name'))
 @section('title','repair')
 @section('content')
-<body>
+
     <h1>แก้ไขวันที่</h1>
     <form method="POST" action="{{route('updatedate',$datefix->id_BEList,$datefix->id_checkroom)}}">
         @csrf
@@ -17,5 +17,4 @@
         <input type="submit" value="บันทึก" class="btn btn-primary">
         <a href= "{{route('back',$datefix->id_checkroom)}}" class= "btn btn-primary">Back</a>
     </form>
-</body>
 @endsection

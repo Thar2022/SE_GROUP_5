@@ -23,6 +23,7 @@ use App\Http\Controllers\CheckroomController;
 */
 
 Route::get('/', function () {
+    session_unset();
     return view('auth/login');
 });
 Route::get('/guide', [BookingController::class, 'guide'])->name('guide');
@@ -86,7 +87,7 @@ Route::post('/estimate', [Report_RepairController::class, 'Estimate'])->name('es
 
 
 
-Route::get('/NeedRepair/{id_checkroom}', [NeedRepairController::class, 'NeedRepair'])->name('needRepair');
+
 
 Route::get('/historyrepair', [HistoryRepairController::class, 'historyrepair'])->name('historyrepair');
 

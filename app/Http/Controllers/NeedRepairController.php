@@ -21,7 +21,7 @@ class NeedRepairController extends Controller
     }
     function Back($id){
 
-        return  redirect()->route('technician/needRepair', ['id_checkroom' => $id]);
+        return  redirect()->route('needRepair', ['id_checkroom' => $id]);
     }
     function update(Request $request,$id){
         $request->validate(
@@ -38,7 +38,7 @@ class NeedRepairController extends Controller
        
         $waitequ=DB::table('waitequ')->where('id_BEList',$id)->value('id_checkroom');
         DB::table('broke_equipmentlist')->where('id_BEList',$id)->update($data);
-        return  redirect()->route('technician/needRepair', ['id_checkroom' => $waitequ]);
+        return  redirect()->route('needRepair', ['id_checkroom' => $waitequ]);
     }
 
     function updatefinish(Request $request,$id){
