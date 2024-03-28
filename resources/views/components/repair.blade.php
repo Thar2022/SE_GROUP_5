@@ -29,16 +29,10 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{ url('/admin/allBooking') }}" class="sidebar-link">การจองห้อง</a>
+                    <a href="{{ route('booking') }}" class="sidebar-link">การจองห้อง</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('bookingadmin') }}" class="sidebar-link">การจัดการการจองห้องของuser</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('/admin/changeRoom') }}" class="sidebar-link">การจองที่รอเปลี่ยนห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('/admin/closeRoom') }}" class="sidebar-link">การปิดห้อง</a>
+                    <a href="{{ route('book_status') }}" class="sidebar-link">ประวัติการจอง</a>
                 </li>
             </ul>
         </li>

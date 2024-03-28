@@ -1,4 +1,4 @@
-@extends('layout.adminLayout')
+@extends('layout.' . session('role_name'))
 @section('title','status')
 @section('content')
 <h2 class="text text-center py-2">ประวัติการจอง</h2>
