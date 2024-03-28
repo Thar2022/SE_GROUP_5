@@ -50,23 +50,7 @@
             <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
                     <a href="{{route('report')}}" class="sidebar-link">sssss</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('booking')}}" class="sidebar-link">การจองห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ url('/admin/closeroom') }}" class="sidebar-link">การปิดห้อง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('book_status')}}" class="sidebar-link">ประวัติการจอง</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookinguser')}}" class="sidebar-link">จัดการการจองห้องของuser</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('bookingadmin')}}" class="sidebar-link">จัดการการจองห้องของadmin</a>
-                </li>
-            </ul>
+        </li>
             </a>
         </li>
         <li class="sidebar-item">
@@ -83,12 +67,12 @@
         </li>
     </ul>
     <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
+        <form action="{{ route('logout') }}" method="POST" id="logout">
             @csrf
             @method('DELETE')
-            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="">
+            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
             </a>
-        </a>
+        </form>
     </div>
 </aside>
