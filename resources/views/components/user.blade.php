@@ -4,15 +4,15 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="">ชื่อuser</a>
+            <a href="">ชื่อadmin</a>
         </div>
     </div>
     <ul class="sidebar-nav">
-        
+
         <li class="sidebar-item">
             <a href="{{ url('/admin/home') }}" class="sidebar-link">
                 <i class="lni lni-home"></i>
-                
+
                 <span>หน้าหลัก</span>
             </a>
         </li>
@@ -23,8 +23,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a  class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+            <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="lni lni-agenda"></i>
                 <span>จัดการการจองห้อง</span>
             </a>
@@ -59,7 +58,9 @@
             <a href="#" class="sidebar-link">
                 <i class="lni lni-popup"></i>
                 <span>จัดการการซ่อมห้อง</span>
+
             </a>
+
         </li>
         <li class="sidebar-item">
             <a href="#" class="sidebar-link">

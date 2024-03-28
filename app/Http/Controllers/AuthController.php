@@ -35,26 +35,15 @@ class AuthController extends Controller
             $employee->email = $request->email;
 
             $employee->save();
-
-            //save user
-            $user = new User();
-
-            $user->name = $request->fname . ' ' . $request->lname;
-            $user->email = $request->email;
-            $user->role = $request->role;
-            $user->password = Hash::make($request->password);
         } catch (\Exception $e) {
             return back()->with('error', 'Error Register with message: ' . $e->getMessage());
         }
-
-        $user->save();
-
         return back()->with('success', 'Register successfully');
     }
 
     public function login()
     {
-        return view('login');
+        return view('auth/login');
     }
 
     public function loginPost(Request $request)
