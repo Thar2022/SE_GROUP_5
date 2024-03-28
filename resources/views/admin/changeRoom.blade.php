@@ -1,4 +1,4 @@
-@extends('layout.adminLayout')
+@extends('layout.' . session('role_name'))
 
 @section('title')
     การจองที่รอเปลี่ยนห้อง    
