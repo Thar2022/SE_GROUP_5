@@ -24,7 +24,7 @@ use App\Http\Controllers\CheckroomController;
 
 Route::get('/', function () {
     session_unset();
-    return view('auth/login');
+    return view('booking.book');
 });
 Route::get('/guide', [BookingController::class, 'guide'])->name('guide');
 Route::get('/book', [BookingController::class, 'booking'])->name('booking');
