@@ -89,15 +89,22 @@ class BookingController extends Controller
     }
     function book_from($id)
     {
-        $close_room = null;
-        $close_room = close_room::join('meeting_room', 'close_room.id_room', '=', 'meeting_room.id_room')
-            ->where('meeting_room.name_room', $id)
-            ->where('close_room.id_closeroom', close_room::max('id_closeroom'))
-            ->first();
-        //echo $id;
-        //$id = $sql->id;
+         //echo $id;
+         $latest_close_date = close_room::where("id_room", $id)
+        ->max('date_open');
+         //echo $latest_close_date;
 
-            return view('booking/book_from', compact('close_room','id'));
+        $close_room = null;
+        if ($latest_close_date) {
+            $close_room = close_room::join('meeting_room', 'close_room.id_room', '=', 'meeting_room.id_room')
+                ->where('meeting_room.id_room', $id)
+                ->where('close_room.date_open', $latest_close_date)
+                ->first();
+        }
+       
+        //$id = $sql->id;
+       // echo $close_room->date_open;
+        return view('booking/book_from', compact('close_room','id'));
     }
 
     function book_insert(Request $request)
