@@ -46,12 +46,12 @@ class DataController extends Controller
 	public function editPage(){
 		$userData = DB::table('users as u')
 			->leftJoin('employee as e', 'u.email', '=', 'e.email')
-			->leftJoin(DB::raw('(select id, name from role) as r'), 'u.role', '=', 'r.id')
-			->select('u.id', 'u.email', 'u.role', 'e.fname', 'e.lname', 'e.phone', 'r.name as role_name')
+			->leftJoin(DB::raw('(select id_role, name_role from role) as r'), 'u.role', '=', 'r.id_role')
+			->select('u.id', 'u.email', 'u.role', 'e.fname', 'e.lname', 'e.phone', 'r.name_role as role_name')
 			->get();
 
 			if ($userData) {
-				return view('edituser', ['userData' => $userData]);
+				return view('auth.edituser', ['userData' => $userData]);
 			} else {
 				return response()->json(['error' => 'User not found'], 404);
 			}
@@ -75,9 +75,9 @@ class DataController extends Controller
 	public function editUser(Request $request){
 		$userData = DB::table('users as u')
 			->leftJoin('employee as e', 'u.email', '=', 'e.email')
-			->leftJoin(DB::raw('(select id, name from role) as r'), 'u.role', '=', 'r.id')
+			->leftJoin(DB::raw('(select id_role, name_role from role) as r'), 'u.role', '=', 'r.id_role')
 			->where('u.id', $request->id)
-			->select('u.id', 'u.email', 'u.role', 'e.fname', 'e.lname', 'e.phone', 'r.name as role_name')
+			->select('u.id', 'u.email', 'u.role', 'e.fname', 'e.lname', 'e.phone', 'r.name_role as role_name')
 			->first();
 
 			if ($userData) {
@@ -88,7 +88,7 @@ class DataController extends Controller
 				$lname = $userData->lname;
 				$phone = $userData->phone;
 				$roleName = $userData->role_name;
-				return view('editselecteduser', ['userData' => $userData]);
+				return view('auth.editselecteduser', ['userData' => $userData]);
 			} else {
 				return response()->json(['error' => 'User not found'], 404);
 			}
