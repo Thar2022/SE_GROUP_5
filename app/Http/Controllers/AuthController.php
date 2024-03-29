@@ -43,7 +43,6 @@ class AuthController extends Controller
             $user->email = $request->email;
             $user->role = $request->role;
             $user->password = Hash::make($request->password);
-            $user->id_emp = $employee->id;
         } catch (\Exception $e) {
             return back()->with('error', 'Error Register with message: ' . $e->getMessage());
         }

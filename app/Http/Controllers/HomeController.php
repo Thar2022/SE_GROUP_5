@@ -13,7 +13,7 @@ class HomeController extends Controller
         if (Auth::user()) {
             if (Auth::user()->role == 1) {
                 session()->put('role_name', 'admin');
-                return view('auth.admin');
+                return view('admin.home');
             } elseif (Auth::user()->role == 2) {
                 session()->put('role_name', 'repair');
                 return view('auth.repair');
@@ -49,9 +49,9 @@ class HomeController extends Controller
 
     public function edit()
     {
-        return view('edituser');
+        return view('auth/edituser');
     }
-    
+
     public function register()
 {
     return view('register');

@@ -1,3 +1,14 @@
+@extends('layout.' . session('role_name'))
+
+@section('title')
+    จัดการผู้ใช้แต่ละคน
+@endsection
+
+
+
+@section('content')
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +19,11 @@
     <title>Register</title>
 </head>
 
-<body class="bg-gray-100 h-screen flex justify-center items-center">
-    <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
+
+<br>
+	<br>
+	<div class=" flex justify-center">
+	<div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
         <h2 class="text-2xl font-semibold mb-4">สมัครสมาชิก</h2>
         @if (Session::has('success'))
             <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
@@ -42,8 +56,10 @@
                 <!-- <input type="text" id="role" name="role" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"> -->
                 <select id="role" required name="role" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="">กรุณาเลือกตำแหน่ง</option>
+                    <option value="1">ผู้ดูแลระบบ</option>
                     <option value="3">ฝ่ายตรวจ</option>
                     <option value="2">ฝ่ายซ่อม</option>
+                    <option value="3">พนักงานบริษัท</option>
                 </select>
             </div>
             <div>
@@ -61,12 +77,15 @@
             <div>
                 <button type="submit" class="w-full py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">สมัครสมาชิก</button>
             </div>
-            
+
         </form>
         <br>
     </div>
-    
+
 
 </body>
 
 </html>
+
+
+@endsection

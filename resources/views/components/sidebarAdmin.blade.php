@@ -17,9 +17,15 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="{{ route('edituser') }}" class="sidebar-link">
+            <a href="/edit" class="sidebar-link">
                 <i class="lni lni-protection"></i>
                 <span>จัดการผู้ใช้ทั้งหมด</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="/register" class="sidebar-link">
+                <i class="lni lni-user"></i>
+                <span>สมัครสมาชิกผู้ใช้ใหม่</span>
             </a>
         </li>
         <li class="sidebar-item">
