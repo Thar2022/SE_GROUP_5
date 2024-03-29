@@ -15,7 +15,7 @@
 <body>
     <div class="wrapper">
         {{-- sidebar --}}
-        @include('components.audit')
+        @include('components.user')
 
         <div class="main p-3">
             <div>

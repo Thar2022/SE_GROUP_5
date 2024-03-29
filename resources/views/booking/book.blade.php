@@ -10,13 +10,14 @@
             <div class="col">
                 <div class="card shadow-sm">
                     <div class="card-img-top">
-                        <img src="room/{{$item->name_room}}.jpg" class="img-fluid" alt="Image">
+                       
                     </div>
 
                     <div class="card-body">
                         <p class="card-text text-left">
                             {{$item->name_room}} <br>
-                            อุปกรณ์
+                            type: {{$item->type}} <br>
+                            ขนาด: {{$item->seats}} คน
                         </p>
                         <div class="mt-auto">
                             <a href="{{route('book_from',$item->id_room)}}">

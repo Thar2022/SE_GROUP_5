@@ -2,7 +2,7 @@
 @section('title','repair')
 @section('content')
 
-<body>
+
     <div class="card">
         <div class="card-header">
             รายละเอียดเพิ่มเติม
@@ -53,6 +53,6 @@
                 </div>
         </div>
         <a href= "/historyrepair" class= "btn btn-primary">Back</a>
-</body>
+
 
 @endsection

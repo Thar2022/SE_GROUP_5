@@ -8,16 +8,6 @@
     @vite('resources/css/app.css')
     <title>After Login - Landing Page</title>
 </head>
-
-{{
-    //redirect
-    (session('role') == 1) {
-        return redirect('/admin')->with('success', 'Login Success');
-    } else {
-        return redirect('/home')->with('success', 'Login Success');
-    }
-}}
-
 <body class="bg-gray-100 h-screen flex justify-center items-center">
     <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
         <h2 class="text-2xl font-semibold mb-4">Welcome to Our Website, {{ session('user') }}!</h2>

@@ -21,7 +21,7 @@ class HistoryDetailRepairController extends Controller
     function Detail($id){       
         $item=DB::table('historydetail')->where('id_checkroom',$id)->first();
         $detail=DB::table('waitequ')->where('id_checkroom',$id)->get();
-        dd($item->all());
+        //dd($item->all());
         return view('technician/historydetailrepair',compact('detail','item'));
     }
 }

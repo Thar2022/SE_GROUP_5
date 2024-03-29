@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,3 +24,10 @@
 </body>
 
 </html>
+=======
+@extends('layout.repair')
+@section('title','repair')
+@section('content')
+
+@endsection
+>>>>>>> c73106f36cc1a5ba8f20f2dadc2372a4be5f1356

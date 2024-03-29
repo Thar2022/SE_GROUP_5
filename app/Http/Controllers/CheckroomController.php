@@ -29,16 +29,18 @@ class CheckroomController extends Controller
         $future_day_number = $this->future_day_number;
         $late_day_number = $this->late_day_number;
         $currentTime  = $this->currentTime;
-        
+        // echo $currentTime;
+        // echo $late_day_number;
+        // echo $future_day_number;
         //  echo  $this->future_day_check;
         //  echo  $this->currentTime;/
         $bookings = DB::table('booking_room')->join('meeting_room', 'booking_room.id_room', '=', 'meeting_room.id_room')->groupBy('date', 'meeting_room.id_room')->havingRaw("status = 'กำลังตรวจสอบ' and  date <= '" . $this->future_day_check . "' and date >= '" . $this->currentTime . "'")->orderBy('date')->paginate(2);
-
-        $blogs = DB::table('booking_room')->where('status', "กำลังตรวจสอบ")->get();
-        $dateStr = $blogs[2]->date;
-        $new_timestamp = date('Y-m-d', strtotime('-1 day', strtotime($dateStr)));
-
-        return view('checkroom.checkroom', compact('bookings', 'late_day_number', 'currentTime','future_day_number'));
+        // dd($bookings);
+        // $blogs = DB::table('booking_room')->where('status', "กำลังตรวจสอบ")->get();
+        // $dateStr = $blogs[2]->date;
+        // $new_timestamp = date('Y-m-d', strtotime('-1 day', strtotime($dateStr)));
+        // echo "sdf";
+        return view('checkroom/checkroom', compact('bookings', 'late_day_number', 'currentTime','future_day_number'));
     }
     function nobroken($id_room)
     {
@@ -63,7 +65,7 @@ class CheckroomController extends Controller
         DB::table('booking_room')
             ->where([['id_room', '=', $id_room], ['status', '=', 'กำลังตรวจสอบ'], ['date', '>=', $currentTime], ['date', '<=', $future_time]])->update(['status' => 'ห้องปกติ']);
 
-        return redirect('checkroom.checkroom');
+        return redirect('checkroom/check');
     }
     function broken($id_room)
     {
@@ -152,13 +154,13 @@ class CheckroomController extends Controller
 
 
 
-        return redirect('checkroom.checkroom');
+        return redirect('checkroom/check');
     }
 
     function history_check()
     {
 
-        $check_rooms = DB::table('check_room')->join('meeting_room', 'check_room.id_room', '=', 'meeting_room.id_room')->get();
+        $check_rooms = DB::table('check_room')->join('meeting_room', 'check_room.id_room', '=', 'meeting_room.id_room')->orderBy('date_check','desc')->get();
 
         return view('checkroom.history_check', compact('check_rooms'));
     }

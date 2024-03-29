@@ -2,7 +2,7 @@
 @section('title','repair')
 @section('content')
 
-<body>
+
     <div class="card">
          
         <!--ตารางอุปกรณ์ที่เสีย-->

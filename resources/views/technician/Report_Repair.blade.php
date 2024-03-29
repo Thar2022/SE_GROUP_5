@@ -1,7 +1,7 @@
 @extends('layout.' . session('role_name'))
 @section('title','repair')
 @section('content')
-<body>
+
     <div >
         <h5>รายงานการซ่อม</h5>
     </div>
@@ -29,7 +29,7 @@
         </div>
         </div>
     @endforeach
-</body>
+
 @endsection
 
 

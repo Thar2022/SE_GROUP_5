@@ -2,7 +2,6 @@
 @section('title','repair')
 @section('content')
 
-<body>
     <div class="card">
         <div class="card-header">
             รายละเอียดเพิ่มเติม
@@ -87,6 +86,6 @@
     
     </div>
 
-</body>
+
 
 @endsection

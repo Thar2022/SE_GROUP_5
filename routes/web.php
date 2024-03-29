@@ -22,6 +22,13 @@ use App\Http\Controllers\CheckroomController;
 |
 */
 
+<<<<<<< HEAD
+=======
+Route::get('/', function () {
+    session_unset();
+    return view('booking.book');
+});
+>>>>>>> c73106f36cc1a5ba8f20f2dadc2372a4be5f1356
 Route::get('/guide', [BookingController::class, 'guide'])->name('guide');
 Route::get('/book', [BookingController::class, 'booking'])->name('booking');
 Route::get('/insert', [BookingController::class, 'book_insert'])->name('book_insert');
@@ -81,7 +88,13 @@ Route::get('/Detail/{id_checkroom}', [Report_RepairController::class, 'Detail'])
 
 Route::post('/estimate', [Report_RepairController::class, 'Estimate'])->name('estimate');
 
+<<<<<<< HEAD
 Route::get('/NeedRepair/{id_checkroom}', [NeedRepairController::class, 'NeedRepair'])->name('needRepair');
+=======
+
+
+
+>>>>>>> c73106f36cc1a5ba8f20f2dadc2372a4be5f1356
 
 Route::get('/historyrepair', [HistoryRepairController::class, 'historyrepair'])->name('historyrepair');
 

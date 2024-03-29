@@ -2,7 +2,7 @@
 @section('title','repair')
 @section('content')
 
-<body>
+
     <h1 class = "text text-center">ประวัติการซ่อม</h1>
     <br>
     <table class="table table-bordered text-center">
@@ -46,6 +46,6 @@
             @endforeach
         </tbody>
     </table>
-</body>
+
 
 @endsection

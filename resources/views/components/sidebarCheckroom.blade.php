@@ -4,7 +4,7 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="">ชื่อuser</a>
+            <a href="">Check room</a>
         </div>
     </div>
     <ul class="sidebar-nav">
