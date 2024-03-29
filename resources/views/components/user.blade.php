@@ -50,9 +50,13 @@
         </li>
     </ul>
     <div class="sidebar-footer">
-    <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
-            <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
-
-        </a>
+        <form action="{{ route('logout') }}" method="POST" id="logout">
+            @csrf
+            @method('DELETE')
+            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
+                <i class="lni lni-exit"></i>
+                <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
+            </a>
+        </form>
     </div>
 </aside>

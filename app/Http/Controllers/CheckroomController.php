@@ -29,6 +29,8 @@ class CheckroomController extends Controller
         $future_day_number = $this->future_day_number;
         $late_day_number = $this->late_day_number;
         $currentTime  = $this->currentTime;
+        
+        // $bookings = DB::table('booking_room')->where('status','กำลังตรวจสอบ');
         // echo $currentTime;
         // echo $late_day_number;
         // echo $future_day_number;
@@ -60,10 +62,10 @@ class CheckroomController extends Controller
         DB::table('check_room')->insert([
             'id_room' => $id_room,
             'id_emp' => $emp->id_employee,
-            'status_check' => 'ห้องปกติ'
+            'status_check' => 'เรียบร้อย'
         ]);
         DB::table('booking_room')
-            ->where([['id_room', '=', $id_room], ['status', '=', 'กำลังตรวจสอบ'], ['date', '>=', $currentTime], ['date', '<=', $future_time]])->update(['status' => 'ห้องปกติ']);
+            ->where([['id_room', '=', $id_room], ['status', '=', 'กำลังตรวจสอบ'], ['date', '>=', $currentTime], ['date', '<=', $future_time]])->update(['status' => 'ห้องพร้อมใช้งาน']);
 
         return redirect('checkroom/check');
     }
@@ -135,7 +137,7 @@ class CheckroomController extends Controller
         $id_checkroom = DB::table('check_room')->insertGetId([
             'id_room' => $id_room,
             'id_emp' => $emp->id_employee,
-            'status_check' => 'ห้องเสีย',
+            'status_check' => 'เสีย',
             'note' => $note
         ]);
 
@@ -150,7 +152,7 @@ class CheckroomController extends Controller
         }
 
         DB::table('booking_room')
-            ->where([['id_room', '=', $id_room], ['status', '=', 'กำลังตรวจสอบ'], ['date', '>=', $currentTime], ['date', '<=', $future_time]])->update(['status' => 'ห้องเสีย']);
+            ->where([['id_room', '=', $id_room], ['status', '=', 'กำลังตรวจสอบ'], ['date', '>=', $currentTime], ['date', '<=', $future_time]])->update(['status' => 'ห้องไม่พร้อมใช้งาน']);
 
 
 

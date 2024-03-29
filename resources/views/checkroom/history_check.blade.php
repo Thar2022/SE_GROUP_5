@@ -31,7 +31,7 @@
                                 </td>
                                 <td>{{ $check_room->date_check }}</td>
                                 <td>
-                                    @if ($check_room->status_check == 'ห้องปกติ')
+                                    @if ($check_room->status_check == 'เรียบร้อย')
                                         <p class="text-success">{{ $check_room->status_check }}</p>
                                     @else
                                         <p class="text-danger">{{ $check_room->status_check }}</p>
