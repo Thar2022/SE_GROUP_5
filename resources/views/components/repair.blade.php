@@ -1,4 +1,3 @@
-
 <aside id="sidebar">
     <div class="d-flex">
         <button class="toggle-btn" type="button">
@@ -11,7 +10,7 @@
     <ul class="sidebar-nav">
 
         <li class="sidebar-item">
-            <a href="{{ url('admin/home') }}" class="sidebar-link">
+            <a href="{{ url('/admin/home') }}" class="sidebar-link">
                 <i class="lni lni-home"></i>
 
                 <span>หน้าหลัก</span>
@@ -24,8 +23,13 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
-                aria-expanded="false" aria-controls="auth">
+            <a href="{{ url('/admin/register') }}" class="sidebar-link">
+                <i class="lni lni-protection"></i>
+                <span>จัดการผู้ใช้ทั้งหมด</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="lni lni-agenda"></i>
                 <span>จัดการการจองห้อง</span>
             </a>
@@ -36,13 +40,15 @@
                 <li class="sidebar-item">
                     <a href="{{ route('book_status') }}" class="sidebar-link">ประวัติการจอง</a>
                 </li>
+                <li class="sidebar-item">
+                    <a href="{{ url('/admin/checkRoom') }}" class="sidebar-link">จัดการซ่อมห้อง</a>
+                </li>
             </ul>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#re"
-                aria-expanded="false" aria-controls="re">
+            <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#re" aria-expanded="false" aria-controls="re">
                 <i class="lni lni-agenda"></i>
-                <span>ซ่อม</span>
+                <span>การจัดการการซ่อม</span>
             </a>
             <ul id="re" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
@@ -52,12 +58,12 @@
                     <a href="{{ route('waitrepair') }}" class="sidebar-link">รอการซ่อม</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('historyrepair') }}" class="sidebar-link">ประวัติการจองการซ่อม</a>
+                    <a href="{{ route('historyrepair') }}" class="sidebar-link">ประวัติการซ่อม</a>
                 </li>
-                </a>
+            </ul>
         </li>
         <li class="sidebar-item">
-            <a href="{{ url('/admin/meetingRoom') }}" class="sidebar-link">
+            <a href="#" class="sidebar-link">
                 <i class="lni lni-popup"></i>
                 <span>จัดการการห้องและอุปกรณ์</span>
             </a>
@@ -70,16 +76,9 @@
         </li>
     </ul>
     <div class="sidebar-footer">
-        <form action="{{ route('logout') }}" method="POST" id="logout">
-            @csrf
-            @method('DELETE')
-            <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;"
-                class="sidebar-link">
-                <i class="lni lni-exit"></i>
-                <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
-            </a>
-               
-        </form>
+        <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">
+            <span class="flex-1 ms-3 whitespace-nowrap">ออกจากระบบ</span>
+
+        </a>
     </div>
 </aside>
-
