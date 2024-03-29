@@ -45,18 +45,17 @@
                         @php
                             $x = 0;
                         @endphp
-                        @foreach ($detail as $item)
+                        @foreach ($detail as $d)
                             <tr>
                                 <td>{{ $x += 1 }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->amount }}</td>
+                                <td>{{ $d->name }}</td>
+                                <td>{{ $d->amount }}</td>
                             </tr>
                         @endforeach
                     </table>
                 </div>
             </blockquote>
         </div>
-
         <!--ประมาณเวลา-->
         
         <form class="needs-validation" novalidate=""action="{{route('estimate')}}" method="POST">
@@ -65,7 +64,6 @@
                 <label for="date_start" class="form-label">ประมาณวันที่</label>
                 <input type="date" id="date" name="date" value="" min="{{$item->date_check}}" max="" />
                 <input type="hidden" id="id_checkroom" name="id_checkroom" value="{{$item->id_checkroom}}" />
-                 
                 @error('date')
                 <div class="my-2">
                     <span class="text text-danger">{{$message}}</span>

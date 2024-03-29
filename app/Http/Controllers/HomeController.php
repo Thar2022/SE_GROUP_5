@@ -17,15 +17,15 @@ class HomeController extends Controller
             } elseif (Auth::user()->role == 2) {
                 session()->put('role_name', 'repair');
                 return view('auth.repair');
-            } elseif (Auth::user()->role == 3) {
+            } elseif (Auth::user()->role == 4) {
                 session()->put('role_name', 'user');
                 return view('auth.user');
-            } elseif(Auth::user()->role == 4){
-<<<<<<< HEAD
-                return view('auth.audit');
-=======
+            } elseif(Auth::user()->role == 3){
+
+                //return view('auth.audit');
+
                 return redirect()->route('checkroom');
->>>>>>> c73106f36cc1a5ba8f20f2dadc2372a4be5f1356
+
             }
             else {
                 return view('auth.home');

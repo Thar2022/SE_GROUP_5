@@ -17,12 +17,16 @@ class Report_RepairController extends Controller
     }
 
     function Detail($id){
+        $item = null;
+        $detail = null;
         $item=DB::table('report')->where('id_checkroom',$id)->first();
         //$reportData=$this->Report(); // เรียกใช้งานฟังก์ชัน Report() เพื่อดึงข้อมูลรายงาน
         //dd($reportData); // ให้ดูค่าของ $reportData ก่อนที่จะส่งไปยัง View
+        //dd($item);
+   
         $detail=DB::table('brokeequ')->where('id_checkroom',$id)->get(); //ชื่อตารางในdb
         //return view('Detail',compact('report'));
-
+        //dd($detail);
         //dd($item);
         return view('technician/Detail',compact('detail','item'));
     }

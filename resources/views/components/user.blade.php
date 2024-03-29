@@ -17,18 +17,6 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="{{ url('/admin/register') }}" class="sidebar-link">
-                <i class="lni lni-protection"></i>
-                <span>จัดการผู้ใช้ทั้งหมด</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="{{ url('/admin/register') }}" class="sidebar-link">
-                <i class="lni lni-protection"></i>
-                <span>จัดการผู้ใช้ทั้งหมด</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
             <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="lni lni-agenda"></i>
                 <span>จัดการการจองห้อง</span>

@@ -22,13 +22,13 @@ use App\Http\Controllers\CheckroomController;
 |
 */
 
-<<<<<<< HEAD
-=======
+
+
 Route::get('/', function () {
     session_unset();
     return view('booking.book');
 });
->>>>>>> c73106f36cc1a5ba8f20f2dadc2372a4be5f1356
+
 Route::get('/guide', [BookingController::class, 'guide'])->name('guide');
 Route::get('/book', [BookingController::class, 'booking'])->name('booking');
 Route::get('/insert', [BookingController::class, 'book_insert'])->name('book_insert');
@@ -88,13 +88,13 @@ Route::get('/Detail/{id_checkroom}', [Report_RepairController::class, 'Detail'])
 
 Route::post('/estimate', [Report_RepairController::class, 'Estimate'])->name('estimate');
 
-<<<<<<< HEAD
+
 Route::get('/NeedRepair/{id_checkroom}', [NeedRepairController::class, 'NeedRepair'])->name('needRepair');
-=======
 
 
 
->>>>>>> c73106f36cc1a5ba8f20f2dadc2372a4be5f1356
+
+
 
 Route::get('/historyrepair', [HistoryRepairController::class, 'historyrepair'])->name('historyrepair');
 
@@ -144,4 +144,21 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('/deleteUser', [DataController::class, 'deleteUser'])->name('deleteuser');
     Route::get('/editUser', [DataController::class, 'editUser'])->name('edituser');
     Route::get('/saveEditedUser', [DataController::class, 'saveEditedUser'])->name('saveEditedUser');
+
+
 });
+
+//checkroom
+Route::prefix('checkroom')->group(function () {
+    Route::get('/', function () {
+        return view('/checkroom/welcome');
+    });
+
+    Route::get('check', [CheckroomController::class, 'check'])->name('checkroom');
+    Route::get('nobroken/{id_room}', [CheckroomController::class, 'nobroken'])->name('nobroken');
+    Route::get('broken/{id_room}', [CheckroomController::class, 'broken'])->name('broken');
+    Route::post('savebroken', [CheckroomController::class, 'savebroken']);
+    Route::get('history_check', [CheckroomController::class, 'history_check'])->name('history_check');
+    Route::get('detail_check/{id_checkroom}', [CheckroomController::class, 'detail_check'])->name('detail_check');
+});
+//end checkroom
