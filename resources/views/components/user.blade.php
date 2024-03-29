@@ -43,26 +43,6 @@
             </ul>
         </li>
         <li class="sidebar-item">
-            <a href="{{ url('/admin/checkRoom') }}" class="sidebar-link">
-                <i class="lni lni-layout"></i>
-                <span>จัดการการตรวจห้อง</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-popup"></i>
-                <span>จัดการการซ่อมห้อง</span>
-
-            </a>
-
-        </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-popup"></i>
-                <span>จัดการการห้องและอุปกรณ์</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
             <a href="#" class="sidebar-link">
                 <i class="lni lni-user"></i>
                 <span>โปรไฟล์</span>

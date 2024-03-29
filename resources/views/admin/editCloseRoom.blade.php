@@ -21,7 +21,7 @@
             ห้อง : {{ $close_room->name_room }} &nbsp;&nbsp;
             วันที่ปิด : {{ $close_room->date_close }}&nbsp;&nbsp;
             วันที่เปิด : {{ $close_room->date_open }}
-            <form action="{{ route('admin.addCloseRoom', $close_room->id_closeroom) }}" method="GET">
+            <form action="{{ route('admin.updateCloseRoom', $close_room->id_closeroom) }}" method="GET">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
