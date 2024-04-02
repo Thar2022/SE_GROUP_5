@@ -1,4 +1,4 @@
-@extends('layout.checkroomLayout')
+@extends('layout.' . session('role_name'))
 @section('content')
     {{-- แบบย่อ  --}}
     @if (count($equipments) == 0 && $note->note == '')

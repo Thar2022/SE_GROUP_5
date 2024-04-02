@@ -40,7 +40,7 @@ class BookingController extends Controller
                 $query->select('b.id_booking', 'b.topic', 'bf.date', 'b.amount', 'b.id_emp', 'bf.id_room', 'bf.status', 'bf.time_start', 'bf.time_end')
                     ->from('booking_roomfail as bf')
                     ->join('booking_room as b', 'bf.id_booking', '=', 'b.id_booking')
-                    ->where('bf.status', '!=', 'ห้องไม่พร้อม');
+                    ->where('bf.status', '!=', 'ห้องไม่พร้อมใช้งาน');
             })
             ->orderBy('time_start', 'asc')
             ->get();
@@ -74,10 +74,10 @@ class BookingController extends Controller
         return view('booking/guide', compact('booking_fail', 'fail', 'book'));
     }
     function bookinguser()
-    {
+    {   
         $id_emp = session('id_emp');
         $book_emp = booking_room::all();
-        $book_roomfail = booking_roomfail::join('booking_room as b', 'b.id_booking', '=', 'booking_roomfail.id_booking')
+        $book_roomfail = booking_room::join('booking_roomfail as b','b.id_booking','=','booking_room.id_booking')
         ->get();
         return view('booking/bookuser', compact('book_emp','book_roomfail'));
     }
@@ -196,7 +196,7 @@ class BookingController extends Controller
             ->first();
         $room = meeting_room::all();
         $book = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'id_room', 'status', 'time_start', 'time_end')
-            ->where('status', '!=', 'ห้องไม่พร้อม')
+            ->where('status', '!=', 'ห้องไม่พร้อมใช้งาน')
             ->where('id_emp', $id_emp)
             ->where('date', $booking->date)
             ->union(function ($query) use ($booking) {
@@ -204,7 +204,7 @@ class BookingController extends Controller
                     ->from('booking_roomfail as bf')
                     ->join('booking_room as b', 'bf.id_booking', '=', 'b.id_booking')
                     ->where('bf.date', $booking->date)
-                    ->where('bf.status', '!=', 'ห้องไม่พร้อม');
+                    ->where('bf.status', '!=', 'ห้องไม่พร้อมใช้งาน');
             })
             ->orderBy('time_start', 'asc')
             ->get();
@@ -343,8 +343,7 @@ class BookingController extends Controller
         $date = $request->input('date');
         $room = $request->input('room');
         $book = booking_room::select('id_booking', 'topic', 'date', 'amount', 'id_emp', 'id_room', 'status', 'time_start', 'time_end')
-            ->where('status', '!=', 'ห้องไม่พร้อม')
-            ->where('id_emp', $id_emp)
+            ->where('status', '!=', 'ห้องไม่พร้อมใช้งาน')
             ->where('date', $date)
             ->where('id_room', $room)
             ->union(function ($query) use ($date, $room) {
@@ -353,7 +352,7 @@ class BookingController extends Controller
                     ->join('booking_room as b', 'bf.id_booking', '=', 'b.id_booking')
                     ->where('bf.date', $date)
                     ->where('bf.id_room', $room)
-                    ->where('bf.status', '!=', 'ห้องไม่พร้อม');
+                    ->where('bf.status', '!=', 'ห้องไม่พร้อมใช้งาน');
             })
             ->orderBy('time_start', 'asc')
             ->get();

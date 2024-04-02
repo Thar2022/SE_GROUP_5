@@ -1,4 +1,4 @@
-@extends('layout.checkroomLayout')
+@extends('layout.' . session('role_name'))
 @section('content')
     {{-- แบบย่อ  --}}
     <h2 class="text-center mb-4">อุปกรณ์ในห้องทั้งหมด</h2>

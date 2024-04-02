@@ -26,7 +26,7 @@
             <tr>
                 <td>{{ $i++ }}</td>
                 <td>{{ $item->name_room }}</td>
-                <td>{{ $item->fname . $item->lname }}</td>
+                <td>{{ $item->fname ." ". $item->lname }}</td>
                 <td>{{ $item->phone }}</td>
                 <td>{{ $item->date }}</td>
                 <td>{{ $item->note }}</td>

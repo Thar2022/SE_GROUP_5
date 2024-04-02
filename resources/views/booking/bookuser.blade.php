@@ -1,7 +1,7 @@
 @extends('layout.' . session('role_name'))
 @section('title','booking')
 @section('content')
-<h2>การจองของuser</h2>
+<h2>ประวัติการจอง</h2>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" type="button" role="tab" data-bs-target="#pills-1" aria-controls="pills-1" aria-selected="true">กำลังส่งเรื่อง</button>
@@ -21,7 +21,6 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">id_emp</th>
                     <th scope="col">id_booking</th>
                     <th scope="col">หัวข้อประชุม</th>
@@ -45,7 +44,6 @@
                         <?php
                         $room = meeting_room::where('id_room', $item->id_room)->first();
                         ?>
-                        <th scope="row"><?php echo $i ?></th>
                         <td>{{$item->id_emp}}</td>
                         <td>{{$item->id_booking}}</td>
                         <td>{{$item->topic}}</td>
@@ -71,7 +69,6 @@
     <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">id_emp</th>
                     <th scope="col">id_booking</th>
                     <th scope="col">หัวข้อประชุม</th>
@@ -91,7 +88,6 @@
                         <?php
                         $room = meeting_room::where('id_room', $item->id_room)->first();
                         ?>
-                        <th scope="row"><?php echo $i ?></th>
                         <td>{{$item->id_emp}}</td>
                         <td>{{$item->id_booking}}</td>
                         <td>{{$item->topic}}</td>
@@ -112,7 +108,6 @@
     <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">id_emp</th>
                     <th scope="col">id_booking</th>
                     <th scope="col">หัวข้อประชุม</th>
@@ -132,7 +127,6 @@
                         <?php
                         $room = meeting_room::where('id_room', $item->id_room)->first();
                         ?>
-                        <th scope="row"><?php echo $i ?></th>
                         <td>{{$item->id_emp}}</td>
                         <td>{{$item->id_booking}}</td>
                         <td>{{$item->topic}}</td>
@@ -153,7 +147,6 @@
     <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">id_emp</th>
                     <th scope="col">id_booking</th>
                     <th scope="col">หัวข้อประชุม</th>
@@ -172,11 +165,10 @@
                         <?php
                         $room = meeting_room::where('id_room', $item->id_room)->first();
                         ?>
-                        <th scope="row"><?php echo $i ?></th>
                         <td>{{$item->id_emp}}</td>
                         <td>{{$item->id_booking}}</td>
                         <td>{{$item->topic}}</td>
-                        <?php $Date = date("d/m/y", strtotime($item->date)); ?>
+                        <?php $Date = date("d/m/y", strtotime($item->Date)); ?>
                         <td><?php echo $Date; ?></td>
                         <td><?php echo $room->name_room; ?></td>
                         <td>{{$item->time_start}}</td>

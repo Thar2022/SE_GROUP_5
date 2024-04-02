@@ -7,6 +7,6 @@
 
 
 @section('content')
-<h2 class="text-2xl font-semibold mb-4">Welcome to Our Website, {{ session('user') }}!</h2>
-        <h2 class="text-2xl font-semibold mb-4">{{session('role_name')}}</h2>
+<h2 class="text-2xl font-semibold mb-4">Welcome to Our Website id_emp = {{ session('id_emp') }} username = {{ session('user') }}</h2>
+        <h2 class="text-2xl font-semibold mb-4">role = {{session('role_name')}}</h2>
 @endsection

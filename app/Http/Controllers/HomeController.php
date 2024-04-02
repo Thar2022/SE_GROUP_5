@@ -23,7 +23,7 @@ class HomeController extends Controller
             } elseif(Auth::user()->role == 3){
 
                 //return view('auth.audit');
-
+                session()->put('role_name', 'checkroom');
                 return redirect()->route('checkroom');
 
             }

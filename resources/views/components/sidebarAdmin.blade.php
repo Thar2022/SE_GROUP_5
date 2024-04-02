@@ -35,7 +35,7 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="{{ route('bookinguser') }}" class="sidebar-link">การจัดการการจองห้องของuser</a>
+                    <a href="{{ route('bookinguser') }}" class="sidebar-link">ประวัติการจอง</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{{ url('/admin/changeRoom') }}" class="sidebar-link">การจองที่รอเปลี่ยนห้อง</a>
@@ -52,12 +52,6 @@
             <a href="{{ url('/admin/meetingRoom') }}" class="sidebar-link">
                 <i class="lni lni-popup"></i>
                 <span>จัดการการห้องและอุปกรณ์</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>โปรไฟล์</span>
             </a>
         </li>
     </ul>

@@ -17,10 +17,24 @@
             </a>
         </li>
         <li class="sidebar-item">
+            <a class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                <i class="lni lni-agenda"></i>
+                <span>จัดการการจองห้อง</span>
+            </a>
+            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="{{ route('booking') }}" class="sidebar-link">การจองห้อง</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('book_status') }}" class="sidebar-link">ประวัติการจอง</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-item">
             <a href="{{ route('checkroom')}}" class="sidebar-link">
                 <i class="lni lni-protection"></i>
                 <span>จัดการการตรวจห้อง</span>
-                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#">
                     <li class="sidebar-item">
                         <a href="{{ route('booking') }}" class="sidebar-link">การจองห้อง</a>
                     </li>
@@ -36,15 +50,9 @@
                 <span>ประวัติการตรวจห้อง</span>
             </a>
         </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>โปรไฟล์</span>
-            </a>
-        </li>
     </ul>
     <div class="sidebar-footer">
-    <form action="{{ route('logout') }}" method="POST" id="logout">
+        <form action="{{ route('logout') }}" method="POST" id="logout">
             @csrf
             @method('DELETE')
             <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;" class="sidebar-link">

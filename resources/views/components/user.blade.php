@@ -30,12 +30,6 @@
                 </li>
             </ul>
         </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>โปรไฟล์</span>
-            </a>
-        </li>
     </ul>
     <div class="sidebar-footer">
         <form action="{{ route('logout') }}" method="POST" id="logout">

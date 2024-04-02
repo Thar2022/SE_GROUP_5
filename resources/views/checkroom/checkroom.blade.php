@@ -1,4 +1,4 @@
-@extends('layout.checkroomLayout')
+@extends('layout.' . session('role_name'))
 @section('title')
     การจองทั้งหมด
 @endsection

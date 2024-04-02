@@ -37,6 +37,7 @@ class CheckroomController extends Controller
         //  echo  $this->future_day_check;
         //  echo  $this->currentTime;/
         $bookings = DB::table('booking_room')->join('meeting_room', 'booking_room.id_room', '=', 'meeting_room.id_room')->groupBy('date', 'meeting_room.id_room')->havingRaw("status = 'กำลังตรวจสอบ' and  date <= '" . $this->future_day_check . "' and date >= '" . $this->currentTime . "'")->orderBy('date')->paginate(2);
+        DB::table('booking_room')->where('date', '<', $currentTime)->update(['status' => 'ห้องไม่พร้อมใช้งาน']);
         // dd($bookings);
         // $blogs = DB::table('booking_room')->where('status', "กำลังตรวจสอบ")->get();
         // $dateStr = $blogs[2]->date;
