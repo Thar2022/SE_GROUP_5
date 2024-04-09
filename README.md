@@ -1,5 +1,5 @@
 # project_se
-this project for soa_project
+this project for se_project
 
 How to install
 
